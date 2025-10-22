@@ -75,7 +75,18 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 889aa0578a2d1714384fb7e2a8cf2575, type: 3}
       insertIndex: -1
       addedObject: {fileID: 3380700366590236310}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 889aa0578a2d1714384fb7e2a8cf2575, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5022960501791119984}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 889aa0578a2d1714384fb7e2a8cf2575, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8456497207653179014}
   m_SourcePrefab: {fileID: 100100000, guid: 889aa0578a2d1714384fb7e2a8cf2575, type: 3}
+--- !u!95 &3172228904953198606 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: 889aa0578a2d1714384fb7e2a8cf2575, type: 3}
+  m_PrefabInstance: {fileID: 9037757741870253471}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &8191477186754754766 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 889aa0578a2d1714384fb7e2a8cf2575, type: 3}
@@ -93,6 +104,44 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 739a3a219a6317b4f89686544428031c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _characterController: {fileID: 0}
-  _speed: 2
-  Move: {fileID: -5312678993116226670, guid: e8d55970af03f924f908c688fa718c55, type: 3}
+  Speed: 5
+  Move: {x: 0, y: 0, z: 0}
+--- !u!114 &5022960501791119984
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8191477186754754766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e81dd3b16eec97c4898c6c9d331ce3a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _animator: {fileID: 3172228904953198606}
+  _playerMovement: {fileID: 3380700366590236310}
+--- !u!143 &8456497207653179014
+CharacterController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8191477186754754766}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Height: 2
+  m_Radius: 0.5
+  m_SlopeLimit: 45
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.08
+  m_MinMoveDistance: 0.001
+  m_Center: {x: 0, y: 0, z: 0}
