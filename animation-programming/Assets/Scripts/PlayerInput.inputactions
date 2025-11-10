@@ -17,7 +17,7 @@
                 },
                 {
                     "name": "Fire",
-                    "type": "Button",
+                    "type": "PassThrough",
                     "id": "d1b0b203-8b86-4f96-b30f-e60d5f10b511",
                     "expectedControlType": "",
                     "processors": "",
@@ -41,6 +41,24 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "Jump",
+                    "type": "Button",
+                    "id": "6fe6d2b0-8840-4cf5-8870-27f833f5318b",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Sprint",
+                    "type": "Button",
+                    "id": "421090d7-6cb3-481c-83d5-3488f4332db6",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -57,7 +75,7 @@
                 },
                 {
                     "name": "",
-                    "id": "1e10e919-1cb0-4085-9506-244aafec51c0",
+                    "id": "79ebed62-ef5c-440e-8bf2-0127a6166193",
                     "path": "<Mouse>/leftButton",
                     "interactions": "",
                     "processors": "",
@@ -129,6 +147,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "Look",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e53c0b81-1421-4d12-902c-ecd0e3ffdb10",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";KeyboardMouse",
+                    "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f35c9bd3-466e-4ebc-98fb-06401a580cbd",
+                    "path": "<Keyboard>/leftShift",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";KeyboardMouse",
+                    "action": "Sprint",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

@@ -17,8 +17,10 @@ public class PlayerAnimation : MonoBehaviour
         
     }
 
-    public void WalkingAnimation(float currentSpeed)
+    public void MovementAnimation(float currentSpeed)
     {
         _animator.SetFloat("Speed", currentSpeed);
     }
+
+    
 }
