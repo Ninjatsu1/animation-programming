@@ -134,8 +134,8 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""id"": ""6fe6d2b0-8840-4cf5-8870-27f833f5318b"",
                     ""expectedControlType"": """",
                     ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
+                    ""interactions"": ""Press"",
+                    ""initialStateCheck"": true
                 },
                 {
                     ""name"": ""Sprint"",

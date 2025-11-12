@@ -22,5 +22,9 @@ public class PlayerAnimation : MonoBehaviour
         _animator.SetFloat("Speed", currentSpeed);
     }
 
-    
+    public void FireWeaponAnimation()
+    {
+        //_animator.SetBool("IsShooting", true);
+        _animator.SetTrigger("IsShootingT");
+    }
 }

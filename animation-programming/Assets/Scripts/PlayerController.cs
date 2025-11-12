@@ -44,7 +44,6 @@ public class PlayerMovement : MonoBehaviour
         _playerInput.Player.Look.performed += OnLook;
         _playerInput.Player.Look.canceled += OnLook;
         _playerInput.Player.Jump.performed += OnJump;
-        _playerInput.Player.Jump.canceled += OnJump;
         _playerInput.Player.Fire.performed += OnFire;
 
     }
@@ -56,7 +55,6 @@ public class PlayerMovement : MonoBehaviour
         _playerInput.Player.Move.performed -= OnLook;
         _playerInput.Player.Look.canceled -= OnLook;
         _playerInput.Player.Jump.performed -= OnJump;
-        _playerInput.Player.Jump.canceled -= OnJump;
         _playerInput.Player.Fire.performed -= OnFire;
         _playerInput.Player.Disable();
     }
@@ -74,7 +72,7 @@ public class PlayerMovement : MonoBehaviour
         if (_isGrounded && _velocity.y < 0)
             _velocity.y = -2f;
 
-        _velocity.y -= _gravity * Time.deltaTime; // fall down
+        _velocity.y -= _gravity * Time.deltaTime;
     }
 
     public void OnMove(InputAction.CallbackContext context)
@@ -108,9 +106,12 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+
+
     private void CreateGroundCheck()
     {
-        _isGrounded = Physics.CheckSphere(_groundCheck.position, _groundDistance, _groundMask);
+        Ray ray = new Ray(_groundCheck.position, Vector3.down);
+        _isGrounded = Physics.SphereCast(ray, 0.3f, _groundDistance, _groundMask);
     }
 
     private void MovePlayer()
@@ -138,14 +139,20 @@ public class PlayerMovement : MonoBehaviour
         _playerAnimation.MovementAnimation(moveDir.magnitude * Speed);
     }
 
+    private bool IsActuallyGrounded()
+    {
+        return _isGrounded && _velocity.y <= 0f;
+    }
+
     private void Jump()
     {
-        if (_isGrounded)
+        if (IsActuallyGrounded())
         {
-            _velocity.y = Mathf.Sqrt(jumpHeight * 2f * _gravity); // go up
-
+            _velocity.y = Mathf.Sqrt(jumpHeight * 2f * _gravity);
         }
     }
+
+
 
 
     private void UpdateVelocity()
@@ -157,6 +164,7 @@ public class PlayerMovement : MonoBehaviour
     private void FireWeapon()
     {
         Debug.Log("Bang");
+        _playerAnimation.FireWeaponAnimation();
     }
 
 
