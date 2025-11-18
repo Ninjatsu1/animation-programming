@@ -7,7 +7,7 @@ AvatarMask:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: UpperBody
-  m_Mask: 00000000000000000000000000000000000000000100000001000000010000000100000000000000000000000100000001000000
+  m_Mask: 00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
   m_Elements:
   - m_Path: 
     m_Weight: 1
@@ -198,17 +198,17 @@ AvatarMask:
   - m_Path: Armature/torso/Spine.002/Spine.003/Neck
     m_Weight: 0
   - m_Path: Armature/torso/Spine.002/Spine.003/Neck/Shoulder.L
-    m_Weight: 0
+    m_Weight: 1
   - m_Path: Armature/torso/Spine.002/Spine.003/Neck/Shoulder.L/ForeArm.Twist.L
-    m_Weight: 0
+    m_Weight: 1
   - m_Path: Armature/torso/Spine.002/Spine.003/Neck/Shoulder.L/ForeArm.Twist.L/ForeArm.Twist.L_end
-    m_Weight: 0
+    m_Weight: 1
   - m_Path: Armature/torso/Spine.002/Spine.003/Neck/Shoulder.R
-    m_Weight: 0
+    m_Weight: 1
   - m_Path: Armature/torso/Spine.002/Spine.003/Neck/Shoulder.R/ForeArm.Twist.R
-    m_Weight: 0
+    m_Weight: 1
   - m_Path: Armature/torso/Spine.002/Spine.003/Neck/Shoulder.R/ForeArm.Twist.R/ForeArm.Twist.R_end
-    m_Weight: 0
+    m_Weight: 1
   - m_Path: Armature/torso/Spine.002/Spine.003/Neck/Head
     m_Weight: 0
   - m_Path: Armature/torso/Spine.002/Spine.003/Neck/Head/Mouth-Corner.L
