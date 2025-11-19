@@ -20,7 +20,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3227202268317428512
 Transform:
   m_ObjectHideFlags: 0
@@ -128,6 +128,7 @@ MonoBehaviour:
   _forceAmount: 50
   _rb: {fileID: 8778115140942615033}
   _lifeTime: 10
+  _bulletDamage: 0
 --- !u!54 &8778115140942615033
 Rigidbody:
   m_ObjectHideFlags: 0

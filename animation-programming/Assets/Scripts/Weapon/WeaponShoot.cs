@@ -9,7 +9,6 @@ public class WeaponShoot : MonoBehaviour
     [SerializeField] GunType _gunType;
     [SerializeField] Transform _bulletSpawnPositionLeft;
     [SerializeField] Transform _bulletSpawnPositionRight;
-    [SerializeField] private GameObject _bullet;
 
     private void OnEnable()
     {
@@ -24,7 +23,9 @@ public class WeaponShoot : MonoBehaviour
     public void Fire()
     {
         Debug.DrawRay(transform.position, transform.forward * 3, Color.blue, 5f);
-        Instantiate(_bullet, _bulletSpawnPositionLeft.position, _bulletSpawnPositionLeft.rotation);
+        GameObject bullet = Instantiate(_gunType.bulletPrefab, _bulletSpawnPositionLeft.position, _bulletSpawnPositionLeft.rotation);
+        bullet.GetComponent<Bullet>().SetDamage(_gunType.damage);
+        bullet.SetActive(true);
     }
 
 }

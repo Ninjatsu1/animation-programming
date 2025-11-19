@@ -13,10 +13,11 @@ MonoBehaviour:
   m_Name: DualPistols
   m_EditorClassIdentifier: Assembly-CSharp::GunType
   gunName: Dual Pistols
+  weapon: 0
   damage: 10
   fireRate: 0.25
   bulletSpeed: 50
   ammo: 30
-  bulletPrefab: {fileID: 0}
+  bulletPrefab: {fileID: 4357991899349159042, guid: e70e119d92b0d644982869e2f6b161b7, type: 3}
   muzzleFlash: {fileID: 0}
   fireSound: {fileID: 0}

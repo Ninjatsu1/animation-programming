@@ -385,6 +385,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 889aa0578a2d1714384fb7e2a8cf2575, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2138607839241015699}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 889aa0578a2d1714384fb7e2a8cf2575, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 650539149236172279}
   m_SourcePrefab: {fileID: 100100000, guid: 889aa0578a2d1714384fb7e2a8cf2575, type: 3}
 --- !u!95 &3172228904953198606 stripped
 Animator:
@@ -541,7 +544,20 @@ MonoBehaviour:
   _gunType: {fileID: 11400000, guid: f5bcad621af014340a0f80ffb9b5cbbe, type: 2}
   _bulletSpawnPositionLeft: {fileID: 7010279615830136603}
   _bulletSpawnPositionRight: {fileID: 601340259234804007}
-  _bullet: {fileID: 4357991899349159042, guid: e70e119d92b0d644982869e2f6b161b7, type: 3}
+--- !u!114 &650539149236172279
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8191477186754754766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bcf5e4b7b45bf847b1f6f9162e90517, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CharacterHealth
+  _characterStats: {fileID: 11400000, guid: 3ee3ff3ef30d0064c9593db1f9e4ec40, type: 2}
+  _currentHealth: 1
 --- !u!4 &8855811575786496628 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 889aa0578a2d1714384fb7e2a8cf2575, type: 3}
