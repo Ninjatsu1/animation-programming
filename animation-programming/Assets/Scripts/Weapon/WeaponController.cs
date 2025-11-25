@@ -4,26 +4,19 @@ using UnityEngine.InputSystem;
 
 public class WeaponController : MonoBehaviour
 {
-    private PlayerInput _playerInput;
+    private PlayerInputControls _playerInput;
     public Action<int> OnShoot;
     private bool _useLeftGunNext = true;
-
-    private void Awake()
-    {
-        _playerInput = new PlayerInput();
-
-    }
     
-    private void OnEnable()
+    private void Start()
     {
-        _playerInput.Enable();
+        _playerInput = PlayerManager.Instance.PlayerInput;
         _playerInput.Player.Fire.performed += OnFire;
     }
 
     private void OnDisable()
     {
         _playerInput.Player.Fire.performed -= OnFire;
-        _playerInput.Disable();
 
     }
 

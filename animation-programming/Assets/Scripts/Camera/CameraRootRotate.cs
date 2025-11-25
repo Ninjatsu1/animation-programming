@@ -4,45 +4,42 @@ using UnityEngine.InputSystem;
 public class CameraRootRotate : MonoBehaviour
 {
     public float rotationSpeed = 180f;
-    public float minPitch = -40f;
-    public float maxPitch = 70f;
+    public float _minPitch = -40f;
+    public float _maxPitch = 70f;
 
-    private float yaw;
-    private float pitch;
+    private float _yaw;
+    private float _pitch;
 
-    private PlayerInput input;
-    private Vector2 lookInput;
+    private PlayerInputControls _playerInput;
+    private Vector2 _lookInput;
 
-    private void Awake()
+    [SerializeField] private GameObject _player;
+
+
+    private void Start()
     {
-        input = new PlayerInput();
-    }
-
-    private void OnEnable()
-    {
-        input.Player.Look.performed += OnLook;
-        input.Player.Look.canceled += OnLook;
-        input.Player.Enable();
+        _playerInput = PlayerManager.Instance.PlayerInput;
+        _playerInput.Player.Look.performed += OnLook;
+        _playerInput.Player.Look.canceled += OnLook;
     }
 
     private void OnDisable()
     {
-        input.Player.Look.performed -= OnLook;
-        input.Player.Look.canceled -= OnLook;
-        input.Player.Disable();
+        _playerInput.Player.Look.performed -= OnLook;
+        _playerInput.Player.Look.canceled -= OnLook;
     }
 
-    private void OnLook(InputAction.CallbackContext ctx)
+    private void OnLook(InputAction.CallbackContext context)
     {
-        lookInput = ctx.ReadValue<Vector2>();
+        _lookInput = context.ReadValue<Vector2>();
     }
 
     private void LateUpdate()
     {
-        yaw += lookInput.x * rotationSpeed * Time.deltaTime;
-        pitch -= lookInput.y * rotationSpeed * Time.deltaTime;
-        pitch = Mathf.Clamp(pitch, minPitch, maxPitch);
+        _yaw += _lookInput.x * rotationSpeed * Time.deltaTime;
+        _pitch -= _lookInput.y * rotationSpeed * Time.deltaTime;
+        _pitch = Mathf.Clamp(_pitch, _minPitch, _maxPitch);
 
-        transform.rotation = Quaternion.Euler(pitch, yaw, 0);
+        transform.rotation = Quaternion.Euler(_pitch, _yaw, 0);
     }
 }

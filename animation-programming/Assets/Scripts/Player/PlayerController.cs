@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using TMPro;
+using UnityEngine;
 using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(CharacterController))]
@@ -14,28 +15,32 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Transform _groundCheck;
     [SerializeField] private float _groundDistance = 0.4f;
     
+    private PlayerInputControls _playerInput;
+    
     private bool isSprinting = false;
     private float _gravity = 9.81f;
     private PlayerAnimation _playerAnimation;
-    private PlayerInput _playerInput;
     private CharacterController _controller;
     private Vector2 _moveInput;
     private Vector2 _mouseInput;
     private Vector3 _velocity;
     private Vector3 _previousPosition;
     private float rotationVelocity;
-
+    private PlayerManager _playerManager;
 
     private void Awake()
     {
-        _playerInput = new PlayerInput();
+
         _controller = GetComponent<CharacterController>();
         _playerAnimation = GetComponent<PlayerAnimation>();
     }
 
-    private void OnEnable()
+    private void Start()
     {
-        _playerInput.Player.Enable();
+        _playerManager = PlayerManager.Instance;
+        _playerInput = _playerManager.PlayerInput;
+        _playerInput = _playerManager.PlayerInput;
+
         _playerInput.Player.Sprint.performed += OnSprint;
         _playerInput.Player.Move.performed += OnMove;
         _playerInput.Player.Move.canceled += OnMove;
@@ -52,7 +57,6 @@ public class PlayerController : MonoBehaviour
         _playerInput.Player.Jump.performed -= OnJump;
         _playerInput.Player.Sprint.performed -= OnSprint;
         _playerInput.Player.Sprint.canceled -= OnSprintCancel;
-        _playerInput.Player.Disable();
     }
 
     private void Update()

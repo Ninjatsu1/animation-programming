@@ -14,4 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CharacterStats
   CharacterName: Captain Ves
   MaximumHealth: 10
+  CurrentHealth: 10
   MaximumMana: 1
+  CharacterPrefab: {fileID: 8191477186754754766, guid: e3c711fae004ebd40a6f412c94de3e01, type: 3}
