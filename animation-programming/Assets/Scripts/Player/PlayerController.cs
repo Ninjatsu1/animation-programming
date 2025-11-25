@@ -123,12 +123,16 @@ public class PlayerController : MonoBehaviour
         {
             Vector3 move = moveDir.normalized * Speed + Vector3.up * _velocity.y;
             _controller.Move(move * Time.deltaTime);
-        } else
+            _playerAnimation.MovementAnimation(moveDir.magnitude * Speed);
+
+        }
+        else
         {
             Vector3 move = moveDir.normalized * SprintSpeed + Vector3.up * _velocity.y;
             _controller.Move(move * Time.deltaTime);
+            _playerAnimation.MovementAnimation(moveDir.magnitude * SprintSpeed);
+
         }
-        _playerAnimation.MovementAnimation(moveDir.magnitude * Speed);
     }
 
     private bool IsActuallyGrounded()

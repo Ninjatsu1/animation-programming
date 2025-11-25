@@ -544,7 +544,6 @@ GameObject:
   - component: {fileID: 3580848779597634248}
   - component: {fileID: 1094974006133092724}
   - component: {fileID: 6605084512235120086}
-  - component: {fileID: 6341090364748528618}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -676,18 +675,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MenuUI
   _menuRoot: {fileID: 9169127147420412512}
   _exitGameButton: {fileID: 2579458938536073039}
---- !u!114 &6341090364748528618
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5050248771006907231}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aeba73f99a76a424fa2cf75aff3bfe50, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::RaycastDebugger
 --- !u!1 &6802001223948162485
 GameObject:
   m_ObjectHideFlags: 0
