@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class Bullet : MonoBehaviour
@@ -7,9 +8,17 @@ public class Bullet : MonoBehaviour
     [SerializeField] private float _lifeTime = 10f;
     [SerializeField] private float _bulletDamage;
 
+    private int _enemyLayer;
+    private int _interactableLayer;
+
+    public static Action<GameObject> Interact;
+   
+
     private void Awake()
     {
         _rb = GetComponent<Rigidbody>();
+        _enemyLayer = LayerMask.NameToLayer("Enemy");
+        _interactableLayer = LayerMask.NameToLayer("Interactable");
     }
 
     void Start()
@@ -41,11 +50,18 @@ public class Bullet : MonoBehaviour
         Debug.Log("Collided");
         var collidedObject = collision.gameObject;
 
-        if (collidedObject.gameObject.CompareTag("Enemy")) 
+        if(collidedObject.layer == _enemyLayer)
         {
-            collidedObject.GetComponent<CharacterHealth>().DamageHealth(_bulletDamage);
-            Debug.Log("Enemy detected");
+            var health = collidedObject.GetComponent<CharacterHealth>();
+
+            health.DamageHealth(_bulletDamage);
         }
+
+        if (collidedObject.layer == _interactableLayer)
+        {
+            Interact?.Invoke(collidedObject);
+        }
+        
         DespawnBullet();
 
     }

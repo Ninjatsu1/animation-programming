@@ -21,7 +21,7 @@ public class CharacterHealth : MonoBehaviour, IDamageable
    public void DamageHealth(float damage)
     {
         _currentHealth -= damage;
-        OnHealthChanged(_currentHealth, _maximumHealth);
+        OnHealthChanged?.Invoke(_currentHealth, _maximumHealth);
         if (_currentHealth <= 0f)
         {
             Despawn();

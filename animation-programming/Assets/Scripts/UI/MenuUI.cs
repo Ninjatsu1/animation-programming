@@ -37,14 +37,6 @@ public class MenuUI : MonoBehaviour
         }
     }
 
-    private void Update()
-    {
-        if (Mouse.current.leftButton.wasPressedThisFrame)
-        {
-            Debug.Log("Event system: " + EventSystem.current);
-        }
-    }
-
     private void OnMenuToggle(InputAction.CallbackContext context)
     {
         _menuOpen = !_menuOpen;
@@ -61,9 +53,7 @@ public class MenuUI : MonoBehaviour
         {
             _input.Player.Disable();
             _input.UI.Enable();
-            Debug.Log("Selected object" + EventSystem.current.currentSelectedGameObject);
-            Debug.Log("UI enabled: " + _input.UI.enabled);
-            Debug.Log("Player enabled: " + _input.Player.enabled);
+
         }
         else
         {
