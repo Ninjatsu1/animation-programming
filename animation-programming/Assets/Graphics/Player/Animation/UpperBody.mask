@@ -1,0 +1,291 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!319 &31900000
+AvatarMask:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: UpperBody
+  m_Mask: 00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  m_Elements:
+  - m_Path: 
+    m_Weight: 1
+  - m_Path: Armature
+    m_Weight: 0
+  - m_Path: Armature/Ankle-Pivot.L
+    m_Weight: 0
+  - m_Path: Armature/Ankle-Pivot.L/Heel.Pivot.L
+    m_Weight: 0
+  - m_Path: Armature/Ankle-Pivot.L/Heel.Pivot.L/Toes-Pivot.L
+    m_Weight: 0
+  - m_Path: Armature/Ankle-Pivot.L/Heel.Pivot.L/Toes-Pivot.L/Ball-Pivot.L
+    m_Weight: 0
+  - m_Path: Armature/Ankle-Pivot.L/Heel.Pivot.L/Toes-Pivot.L/Ball-Pivot.L/MCH-IK-Target.L
+    m_Weight: 0
+  - m_Path: Armature/Ankle-Pivot.L/Heel.Pivot.L/Toes-Pivot.L/Ball-Pivot.L/MCH-IK-Target.L/Heel.L
+    m_Weight: 0
+  - m_Path: Armature/Ankle-Pivot.L/Heel.Pivot.L/Toes-Pivot.L/Ball-Pivot.L/MCH-IK-Target.L/Heel.L/MCH-Toe.L
+    m_Weight: 0
+  - m_Path: Armature/Ankle-Pivot.L/Heel.Pivot.L/Toes-Pivot.L/Ball-Pivot.L/MCH-IK-Target.L/Heel.L/MCH-Toe.L/MCH-Toe.L_end
+    m_Weight: 0
+  - m_Path: Armature/Ankle-Pivot.L/Heel.Pivot.L/Toes-Pivot.L/Ball-Pivot.L/MCH-IK-Target.L/Heel.L/Toes.L
+    m_Weight: 0
+  - m_Path: Armature/Ankle-Pivot.L/Heel.Pivot.L/Toes-Pivot.L/Ball-Pivot.L/MCH-IK-Target.L/Heel.L/Toes.L/Toes.L_end
+    m_Weight: 0
+  - m_Path: Armature/Ankle-Pivot.R
+    m_Weight: 0
+  - m_Path: Armature/Ankle-Pivot.R/Heel.Pivot.R
+    m_Weight: 0
+  - m_Path: Armature/Ankle-Pivot.R/Heel.Pivot.R/Toes-Pivot.R
+    m_Weight: 0
+  - m_Path: Armature/Ankle-Pivot.R/Heel.Pivot.R/Toes-Pivot.R/Ball-Pivot.R
+    m_Weight: 0
+  - m_Path: Armature/Ankle-Pivot.R/Heel.Pivot.R/Toes-Pivot.R/Ball-Pivot.R/MCH-IK-Target.R
+    m_Weight: 0
+  - m_Path: Armature/Ankle-Pivot.R/Heel.Pivot.R/Toes-Pivot.R/Ball-Pivot.R/MCH-IK-Target.R/Heel.R
+    m_Weight: 0
+  - m_Path: Armature/Ankle-Pivot.R/Heel.Pivot.R/Toes-Pivot.R/Ball-Pivot.R/MCH-IK-Target.R/Heel.R/MCH-Toe.R
+    m_Weight: 0
+  - m_Path: Armature/Ankle-Pivot.R/Heel.Pivot.R/Toes-Pivot.R/Ball-Pivot.R/MCH-IK-Target.R/Heel.R/MCH-Toe.R/MCH-Toe.R_end
+    m_Weight: 0
+  - m_Path: Armature/Ankle-Pivot.R/Heel.Pivot.R/Toes-Pivot.R/Ball-Pivot.R/MCH-IK-Target.R/Heel.R/Toes.R
+    m_Weight: 0
+  - m_Path: Armature/Ankle-Pivot.R/Heel.Pivot.R/Toes-Pivot.R/Ball-Pivot.R/MCH-IK-Target.R/Heel.R/Toes.R/Toes.R_end
+    m_Weight: 0
+  - m_Path: Armature/Root
+    m_Weight: 0
+  - m_Path: Armature/Root/Hand-Control.L
+    m_Weight: 1
+  - m_Path: Armature/Root/Hand-Control.L/Hand-Control.L_end
+    m_Weight: 1
+  - m_Path: Armature/Root/Hand-Control.R
+    m_Weight: 1
+  - m_Path: Armature/Root/Hand-Control.R/Hand-Control.R_end
+    m_Weight: 1
+  - m_Path: Armature/Root/IK-Arm-Pole.L
+    m_Weight: 1
+  - m_Path: Armature/Root/IK-Arm-Pole.L/IK-Arm-Pole.L_end
+    m_Weight: 1
+  - m_Path: Armature/Root/IK-Arm-Pole.R
+    m_Weight: 1
+  - m_Path: Armature/Root/IK-Arm-Pole.R/IK-Arm-Pole.R_end
+    m_Weight: 1
+  - m_Path: Armature/Root/IK_Pole.L
+    m_Weight: 1
+  - m_Path: Armature/Root/IK_Pole.L/IK_Pole.L_end
+    m_Weight: 1
+  - m_Path: Armature/Root/IK_Pole.R
+    m_Weight: 1
+  - m_Path: Armature/Root/IK_Pole.R/IK_Pole.R_end
+    m_Weight: 0
+  - m_Path: Armature/Root/torso
+    m_Weight: 0
+  - m_Path: Armature/Root/torso/Hips
+    m_Weight: 0
+  - m_Path: Armature/Root/torso/Hips/Butt.L
+    m_Weight: 0
+  - m_Path: Armature/Root/torso/Hips/Butt.L/Butt.L_end
+    m_Weight: 0
+  - m_Path: Armature/Root/torso/Hips/Butt.R
+    m_Weight: 0
+  - m_Path: Armature/Root/torso/Hips/Butt.R/Butt.R_end
+    m_Weight: 0
+  - m_Path: Armature/Root/torso/Hips/MCH-Butt.L
+    m_Weight: 0
+  - m_Path: Armature/Root/torso/Hips/MCH-Butt.L/MCH-Butt.L_end
+    m_Weight: 0
+  - m_Path: Armature/Root/torso/Hips/MCH-Butt.R
+    m_Weight: 0
+  - m_Path: Armature/Root/torso/Hips/MCH-Butt.R/MCH-Butt.R_end
+    m_Weight: 0
+  - m_Path: Armature/Root/torso/Hips/Tigh.L
+    m_Weight: 0
+  - m_Path: Armature/Root/torso/Hips/Tigh.L/Calf.L
+    m_Weight: 0
+  - m_Path: Armature/Root/torso/Hips/Tigh.L/Calf.L/Foot.L
+    m_Weight: 0
+  - m_Path: Armature/Root/torso/Hips/Tigh.L/Calf.L/Foot.L/Foot.L_end
+    m_Weight: 0
+  - m_Path: Armature/Root/torso/Hips/Tigh.R
+    m_Weight: 0
+  - m_Path: Armature/Root/torso/Hips/Tigh.R/Calf.R
+    m_Weight: 0
+  - m_Path: Armature/Root/torso/Hips/Tigh.R/Calf.R/Foot.R
+    m_Weight: 0
+  - m_Path: Armature/Root/torso/Hips/Tigh.R/Calf.R/Foot.R/Foot.R_end
+    m_Weight: 0
+  - m_Path: Armature/Root/torso/Spine.002
+    m_Weight: 0
+  - m_Path: Armature/Root/torso/Spine.002/Spine.003
+    m_Weight: 0
+  - m_Path: Armature/Root/torso/Spine.002/Spine.003/Neck
+    m_Weight: 0
+  - m_Path: Armature/Root/torso/Spine.002/Spine.003/Neck/Head
+    m_Weight: 0
+  - m_Path: Armature/Root/torso/Spine.002/Spine.003/Neck/Head/Jaw
+    m_Weight: 0
+  - m_Path: Armature/Root/torso/Spine.002/Spine.003/Neck/Head/Jaw/Jaw_end
+    m_Weight: 0
+  - m_Path: Armature/Root/torso/Spine.002/Spine.003/Neck/Head/MCH-Jaw
+    m_Weight: 0
+  - m_Path: Armature/Root/torso/Spine.002/Spine.003/Neck/Head/MCH-Jaw/MCH-Jaw_end
+    m_Weight: 0
+  - m_Path: Armature/Root/torso/Spine.002/Spine.003/Neck/Head/Mouth-Corner.L
+    m_Weight: 0
+  - m_Path: Armature/Root/torso/Spine.002/Spine.003/Neck/Head/Mouth-Corner.L/Mouth-Corner.L_end
+    m_Weight: 0
+  - m_Path: Armature/Root/torso/Spine.002/Spine.003/Neck/Head/Mouth-Corner.R
+    m_Weight: 0
+  - m_Path: Armature/Root/torso/Spine.002/Spine.003/Neck/Head/Mouth-Corner.R/Mouth-Corner.R_end
+    m_Weight: 0
+  - m_Path: Armature/Root/torso/Spine.002/Spine.003/Neck/Head/tongue
+    m_Weight: 0
+  - m_Path: Armature/Root/torso/Spine.002/Spine.003/Neck/Head/tongue/tongue.001
+    m_Weight: 0
+  - m_Path: Armature/Root/torso/Spine.002/Spine.003/Neck/Head/tongue/tongue.001/tongue.003
+    m_Weight: 0
+  - m_Path: Armature/Root/torso/Spine.002/Spine.003/Neck/Head/tongue/tongue.001/tongue.003/tongue.002
+    m_Weight: 0
+  - m_Path: Armature/Root/torso/Spine.002/Spine.003/Neck/Head/tongue/tongue.001/tongue.003/tongue.002/tongue.002_end
+    m_Weight: 0
+  - m_Path: Armature/Root/torso/Spine.002/Spine.003/Neck/Shoulder.L
+    m_Weight: 0
+  - m_Path: Armature/Root/torso/Spine.002/Spine.003/Neck/Shoulder.L/ForeArm.L
+    m_Weight: 1
+  - m_Path: Armature/Root/torso/Spine.002/Spine.003/Neck/Shoulder.L/ForeArm.L/Arm.L
+    m_Weight: 1
+  - m_Path: Armature/Root/torso/Spine.002/Spine.003/Neck/Shoulder.L/ForeArm.L/Arm.L/Hand.L
+    m_Weight: 1
+  - m_Path: Armature/Root/torso/Spine.002/Spine.003/Neck/Shoulder.L/ForeArm.L/Arm.L/Hand.L/Index.001.L
+    m_Weight: 0
+  - m_Path: Armature/Root/torso/Spine.002/Spine.003/Neck/Shoulder.L/ForeArm.L/Arm.L/Hand.L/Index.001.L/Index.002.L
+    m_Weight: 0
+  - m_Path: Armature/Root/torso/Spine.002/Spine.003/Neck/Shoulder.L/ForeArm.L/Arm.L/Hand.L/Index.001.L/Index.002.L/Index.003.L
+    m_Weight: 0
+  - m_Path: Armature/Root/torso/Spine.002/Spine.003/Neck/Shoulder.L/ForeArm.L/Arm.L/Hand.L/Index.001.L/Index.002.L/Index.003.L/Index.003.L_end
+    m_Weight: 0
+  - m_Path: Armature/Root/torso/Spine.002/Spine.003/Neck/Shoulder.L/ForeArm.L/Arm.L/Hand.L/Middle-Finger.001.L
+    m_Weight: 0
+  - m_Path: Armature/Root/torso/Spine.002/Spine.003/Neck/Shoulder.L/ForeArm.L/Arm.L/Hand.L/Middle-Finger.001.L/Middle-Finger.002.L
+    m_Weight: 0
+  - m_Path: Armature/Root/torso/Spine.002/Spine.003/Neck/Shoulder.L/ForeArm.L/Arm.L/Hand.L/Middle-Finger.001.L/Middle-Finger.002.L/Middle-Finger.003.L
+    m_Weight: 0
+  - m_Path: Armature/Root/torso/Spine.002/Spine.003/Neck/Shoulder.L/ForeArm.L/Arm.L/Hand.L/Middle-Finger.001.L/Middle-Finger.002.L/Middle-Finger.003.L/Middle-Finger.003.L_end
+    m_Weight: 0
+  - m_Path: Armature/Root/torso/Spine.002/Spine.003/Neck/Shoulder.L/ForeArm.L/Arm.L/Hand.L/Pinky-Finger.001.L
+    m_Weight: 0
+  - m_Path: Armature/Root/torso/Spine.002/Spine.003/Neck/Shoulder.L/ForeArm.L/Arm.L/Hand.L/Pinky-Finger.001.L/Pinky-Finger.002.L
+    m_Weight: 0
+  - m_Path: Armature/Root/torso/Spine.002/Spine.003/Neck/Shoulder.L/ForeArm.L/Arm.L/Hand.L/Pinky-Finger.001.L/Pinky-Finger.002.L/Pinky-Finger.003.L
+    m_Weight: 0
+  - m_Path: Armature/Root/torso/Spine.002/Spine.003/Neck/Shoulder.L/ForeArm.L/Arm.L/Hand.L/Pinky-Finger.001.L/Pinky-Finger.002.L/Pinky-Finger.003.L/Pinky-Finger.003.L_end
+    m_Weight: 0
+  - m_Path: Armature/Root/torso/Spine.002/Spine.003/Neck/Shoulder.L/ForeArm.L/Arm.L/Hand.L/Ring-Finger.001.L
+    m_Weight: 0
+  - m_Path: Armature/Root/torso/Spine.002/Spine.003/Neck/Shoulder.L/ForeArm.L/Arm.L/Hand.L/Ring-Finger.001.L/Ring-Finger.002.L
+    m_Weight: 0
+  - m_Path: Armature/Root/torso/Spine.002/Spine.003/Neck/Shoulder.L/ForeArm.L/Arm.L/Hand.L/Ring-Finger.001.L/Ring-Finger.002.L/Ring-Finger.003.L
+    m_Weight: 0
+  - m_Path: Armature/Root/torso/Spine.002/Spine.003/Neck/Shoulder.L/ForeArm.L/Arm.L/Hand.L/Ring-Finger.001.L/Ring-Finger.002.L/Ring-Finger.003.L/Ring-Finger.003.L_end
+    m_Weight: 0
+  - m_Path: Armature/Root/torso/Spine.002/Spine.003/Neck/Shoulder.L/ForeArm.L/Arm.L/Hand.L/Thumb.001.L
+    m_Weight: 0
+  - m_Path: Armature/Root/torso/Spine.002/Spine.003/Neck/Shoulder.L/ForeArm.L/Arm.L/Hand.L/Thumb.001.L/Thumb.002.L
+    m_Weight: 0
+  - m_Path: Armature/Root/torso/Spine.002/Spine.003/Neck/Shoulder.L/ForeArm.L/Arm.L/Hand.L/Thumb.001.L/Thumb.002.L/Thumb.003.L
+    m_Weight: 0
+  - m_Path: Armature/Root/torso/Spine.002/Spine.003/Neck/Shoulder.L/ForeArm.L/Arm.L/Hand.L/Thumb.001.L/Thumb.002.L/Thumb.003.L/Thumb.003.L_end
+    m_Weight: 0
+  - m_Path: Armature/Root/torso/Spine.002/Spine.003/Neck/Shoulder.L/ForeArm.L/Arm.L/MCH-Lower-Arm-Twist.L
+    m_Weight: 1
+  - m_Path: Armature/Root/torso/Spine.002/Spine.003/Neck/Shoulder.L/ForeArm.L/Arm.L/MCH-Lower-Arm-Twist.L/MCH-Lower-Arm-Twist.L_end
+    m_Weight: 1
+  - m_Path: Armature/Root/torso/Spine.002/Spine.003/Neck/Shoulder.L/ForeArm.Twist.L
+    m_Weight: 1
+  - m_Path: Armature/Root/torso/Spine.002/Spine.003/Neck/Shoulder.L/ForeArm.Twist.L/ForeArm.Twist.L_end
+    m_Weight: 1
+  - m_Path: Armature/Root/torso/Spine.002/Spine.003/Neck/Shoulder.R
+    m_Weight: 0
+  - m_Path: Armature/Root/torso/Spine.002/Spine.003/Neck/Shoulder.R/ForeArm.R
+    m_Weight: 1
+  - m_Path: Armature/Root/torso/Spine.002/Spine.003/Neck/Shoulder.R/ForeArm.R/Arm.R
+    m_Weight: 1
+  - m_Path: Armature/Root/torso/Spine.002/Spine.003/Neck/Shoulder.R/ForeArm.R/Arm.R/Hand.R
+    m_Weight: 1
+  - m_Path: Armature/Root/torso/Spine.002/Spine.003/Neck/Shoulder.R/ForeArm.R/Arm.R/Hand.R/Index.001.R
+    m_Weight: 0
+  - m_Path: Armature/Root/torso/Spine.002/Spine.003/Neck/Shoulder.R/ForeArm.R/Arm.R/Hand.R/Index.001.R/Index.002.R
+    m_Weight: 0
+  - m_Path: Armature/Root/torso/Spine.002/Spine.003/Neck/Shoulder.R/ForeArm.R/Arm.R/Hand.R/Index.001.R/Index.002.R/Index.003.R
+    m_Weight: 0
+  - m_Path: Armature/Root/torso/Spine.002/Spine.003/Neck/Shoulder.R/ForeArm.R/Arm.R/Hand.R/Index.001.R/Index.002.R/Index.003.R/Index.003.R_end
+    m_Weight: 0
+  - m_Path: Armature/Root/torso/Spine.002/Spine.003/Neck/Shoulder.R/ForeArm.R/Arm.R/Hand.R/Middle-Finger.001.R
+    m_Weight: 0
+  - m_Path: Armature/Root/torso/Spine.002/Spine.003/Neck/Shoulder.R/ForeArm.R/Arm.R/Hand.R/Middle-Finger.001.R/Middle-Finger.002.R
+    m_Weight: 0
+  - m_Path: Armature/Root/torso/Spine.002/Spine.003/Neck/Shoulder.R/ForeArm.R/Arm.R/Hand.R/Middle-Finger.001.R/Middle-Finger.002.R/Middle-Finger.003.R
+    m_Weight: 0
+  - m_Path: Armature/Root/torso/Spine.002/Spine.003/Neck/Shoulder.R/ForeArm.R/Arm.R/Hand.R/Middle-Finger.001.R/Middle-Finger.002.R/Middle-Finger.003.R/Middle-Finger.003.R_end
+    m_Weight: 0
+  - m_Path: Armature/Root/torso/Spine.002/Spine.003/Neck/Shoulder.R/ForeArm.R/Arm.R/Hand.R/Pinky-Finger.001.R
+    m_Weight: 0
+  - m_Path: Armature/Root/torso/Spine.002/Spine.003/Neck/Shoulder.R/ForeArm.R/Arm.R/Hand.R/Pinky-Finger.001.R/Pinky-Finger.002.R
+    m_Weight: 0
+  - m_Path: Armature/Root/torso/Spine.002/Spine.003/Neck/Shoulder.R/ForeArm.R/Arm.R/Hand.R/Pinky-Finger.001.R/Pinky-Finger.002.R/Pinky-Finger.003.R
+    m_Weight: 0
+  - m_Path: Armature/Root/torso/Spine.002/Spine.003/Neck/Shoulder.R/ForeArm.R/Arm.R/Hand.R/Pinky-Finger.001.R/Pinky-Finger.002.R/Pinky-Finger.003.R/Pinky-Finger.003.R_end
+    m_Weight: 0
+  - m_Path: Armature/Root/torso/Spine.002/Spine.003/Neck/Shoulder.R/ForeArm.R/Arm.R/Hand.R/Ring-Finger.001.R
+    m_Weight: 0
+  - m_Path: Armature/Root/torso/Spine.002/Spine.003/Neck/Shoulder.R/ForeArm.R/Arm.R/Hand.R/Ring-Finger.001.R/Ring-Finger.002.R
+    m_Weight: 0
+  - m_Path: Armature/Root/torso/Spine.002/Spine.003/Neck/Shoulder.R/ForeArm.R/Arm.R/Hand.R/Ring-Finger.001.R/Ring-Finger.002.R/Ring-Finger.003.R
+    m_Weight: 0
+  - m_Path: Armature/Root/torso/Spine.002/Spine.003/Neck/Shoulder.R/ForeArm.R/Arm.R/Hand.R/Ring-Finger.001.R/Ring-Finger.002.R/Ring-Finger.003.R/Ring-Finger.003.R_end
+    m_Weight: 0
+  - m_Path: Armature/Root/torso/Spine.002/Spine.003/Neck/Shoulder.R/ForeArm.R/Arm.R/Hand.R/Thumb.001.R
+    m_Weight: 0
+  - m_Path: Armature/Root/torso/Spine.002/Spine.003/Neck/Shoulder.R/ForeArm.R/Arm.R/Hand.R/Thumb.001.R/Thumb.002.R
+    m_Weight: 0
+  - m_Path: Armature/Root/torso/Spine.002/Spine.003/Neck/Shoulder.R/ForeArm.R/Arm.R/Hand.R/Thumb.001.R/Thumb.002.R/Thumb.003.R
+    m_Weight: 0
+  - m_Path: Armature/Root/torso/Spine.002/Spine.003/Neck/Shoulder.R/ForeArm.R/Arm.R/Hand.R/Thumb.001.R/Thumb.002.R/Thumb.003.R/Thumb.003.R_end
+    m_Weight: 0
+  - m_Path: Armature/Root/torso/Spine.002/Spine.003/Neck/Shoulder.R/ForeArm.R/Arm.R/MCH-Lower-Arm-Twist.R
+    m_Weight: 1
+  - m_Path: Armature/Root/torso/Spine.002/Spine.003/Neck/Shoulder.R/ForeArm.R/Arm.R/MCH-Lower-Arm-Twist.R/MCH-Lower-Arm-Twist.R_end
+    m_Weight: 1
+  - m_Path: Armature/Root/torso/Spine.002/Spine.003/Neck/Shoulder.R/ForeArm.Twist.R
+    m_Weight: 1
+  - m_Path: Armature/Root/torso/Spine.002/Spine.003/Neck/Shoulder.R/ForeArm.Twist.R/ForeArm.Twist.R_end
+    m_Weight: 1
+  - m_Path: Armature/Weapon-Point.L
+    m_Weight: 1
+  - m_Path: Armature/Weapon-Point.L/Weapon-Point.L_end
+    m_Weight: 1
+  - m_Path: Armature/Weapon-Point.R
+    m_Weight: 1
+  - m_Path: Armature/Weapon-Point.R/Weapon-Point.R_end
+    m_Weight: 1
+  - m_Path: body-low-textured
+    m_Weight: 0
+  - m_Path: feather
+    m_Weight: 0
+  - m_Path: gums.002
+    m_Weight: 0
+  - m_Path: gums.018
+    m_Weight: 0
+  - m_Path: gun.002
+    m_Weight: 0
+  - m_Path: harness
+    m_Weight: 0
+  - m_Path: hat
+    m_Weight: 0
+  - m_Path: nail
+    m_Weight: 0
+  - m_Path: nail.014
+    m_Weight: 0
+  - m_Path: tongue
+    m_Weight: 0
