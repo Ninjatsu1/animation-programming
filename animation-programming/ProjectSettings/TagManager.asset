@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Enemy
   - Projectile
+  - PlayerRespawn
   layers:
   - Default
   - TransparentFX
@@ -17,7 +18,7 @@ TagManager:
   - Enemy
   - Projectile
   - Interactable
-  - 
+  - Triggers
   - 
   - 
   - 

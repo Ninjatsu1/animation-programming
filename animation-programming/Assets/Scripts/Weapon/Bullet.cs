@@ -4,7 +4,6 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     [SerializeField] private float _forceAmount = 10f;
-    [SerializeField] private Rigidbody _rb;
     [SerializeField] private float _lifeTime = 10f;
     [SerializeField] private float _bulletDamage;
 
@@ -16,7 +15,6 @@ public class Bullet : MonoBehaviour
 
     private void Awake()
     {
-        _rb = GetComponent<Rigidbody>();
         _enemyLayer = LayerMask.NameToLayer("Enemy");
         _interactableLayer = LayerMask.NameToLayer("Interactable");
     }
@@ -42,7 +40,7 @@ public class Bullet : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("Collided: " + collision.gameObject.name);
+       // Debug.Log("Collided: " + collision.gameObject.name);
         var collidedObject = collision.gameObject;
 
         if(collidedObject.layer == _enemyLayer)
