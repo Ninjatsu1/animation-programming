@@ -21,11 +21,6 @@ public class Bullet : MonoBehaviour
         _interactableLayer = LayerMask.NameToLayer("Interactable");
     }
 
-    void Start()
-    {
-        _rb.AddForce(transform.forward * _forceAmount, ForceMode.Impulse);    
-    }
-
     private void Update()
     {
         _lifeTime -= Time.deltaTime;
@@ -47,7 +42,7 @@ public class Bullet : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("Collided");
+        Debug.Log("Collided: " + collision.gameObject.name);
         var collidedObject = collision.gameObject;
 
         if(collidedObject.layer == _enemyLayer)

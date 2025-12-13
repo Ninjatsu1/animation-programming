@@ -2,7 +2,8 @@ using UnityEngine;
 
 public class ThirdPersonAim : MonoBehaviour
 {
-    [SerializeField] private Camera _camera;
+    private Camera _camera;
+    
     [SerializeField] private Transform _aimTarget;
     [SerializeField] private float _aimDistance = 50f;
     [SerializeField] private LayerMask _aimMask;

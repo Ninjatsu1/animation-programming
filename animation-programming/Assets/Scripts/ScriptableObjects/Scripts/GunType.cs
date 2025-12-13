@@ -9,15 +9,15 @@ public class GunType : ScriptableObject
     public WeaponType.Weapon weapon;
 
     [Header("Stats")]
-    public float damage = 10f;
-    public float fireRate = 0.25f;
-    public float bulletSpeed = 50f;
-    public int ammo = 30;
+    public float Damage = 10f;
+    public float FireRate = 0.25f;
+    public float BulletSpeed = 50f;
+    public int Ammo = 30;
 
     [Header("Effects")] //Implement these later!
-    public GameObject bulletPrefab;
-    public ParticleSystem muzzleFlash;
-    public AudioClip fireSound;
+    public GameObject BulletPrefab;
+    public ParticleSystem MuzzleFlash;
+    public AudioClip FireSound;
 }
 
 public class WeaponType

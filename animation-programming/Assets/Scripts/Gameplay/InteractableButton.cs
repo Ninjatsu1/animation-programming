@@ -18,9 +18,7 @@ public class InteractableButton : MonoBehaviour
 
     private void OnInteract(GameObject collidedObject)
     {
-        if(collidedObject == gameObject)
-        {
-            _portToOpen.SetActive(false);
-        }
+        Debug.Log("interact");
+        _portToOpen.SetActive(false);
     }
 }

@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class WeaponAnimation : MonoBehaviour
 {
-    public Action WeaponFired;
+    public Action<string> WeaponFired;
 
     [SerializeField] private WeaponShoot _weaponShoot;
     [SerializeField] private WeaponController _weaponController;
@@ -25,8 +25,8 @@ public class WeaponAnimation : MonoBehaviour
         _animator.SetTrigger(animationHash);
     }
 
-    public void FireEvent()
+    public void FireEvent(string whichWeapon)
     {
-        WeaponFired?.Invoke();
+        WeaponFired?.Invoke(whichWeapon);
     }
 }
