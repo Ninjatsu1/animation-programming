@@ -6,7 +6,7 @@ public class PlayerUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _playerHealthText;
     private CharacterHealth _characterHealth;
 
-    private CharacterStats _playerStats = null;
+    private GameObject _playerStats = null;
 
     private void Start()
     {
@@ -22,6 +22,6 @@ public class PlayerUI : MonoBehaviour
 
     private void SetPlayerUI()
     {
-        _playerHealthText.text = _playerStats.CurrentHealth.ToString();
+        _playerHealthText.text = "1"; //_playerStats.CurrentHealth.ToString();
     }
 }

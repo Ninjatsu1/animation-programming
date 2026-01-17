@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
     public float Speed = 3f;
     public float SprintSpeed = 6f;
     public float jumpHeight = 2f;
+    public float slidingSpeedIncrease = 3f;
 
     [SerializeField] private float _rotationSmoothTime = 0.1f;
     [SerializeField] private bool _isGrounded = true;
@@ -27,6 +28,7 @@ public class PlayerController : MonoBehaviour
     private Vector3 _previousPosition;
     private float rotationVelocity;
     private PlayerManager _playerManager;
+    private bool isSliding = false;
 
     private void Awake()
     {
@@ -47,6 +49,8 @@ public class PlayerController : MonoBehaviour
         _playerInput.Player.Jump.performed += OnJump;
         _playerInput.Player.Sprint.performed += OnSprint;
         _playerInput.Player.Sprint.canceled += OnSprintCancel;
+        _playerInput.Player.Slide.performed += OnSliding;
+        _playerInput.Player.Slide.canceled += OnSlidingCancel;
 
     }
 
@@ -56,7 +60,9 @@ public class PlayerController : MonoBehaviour
         _playerInput.Player.Move.canceled -= OnMove;
         _playerInput.Player.Jump.performed -= OnJump;
         _playerInput.Player.Sprint.performed -= OnSprint;
-        _playerInput.Player.Sprint.canceled -= OnSprintCancel;
+        _playerInput.Player.Sprint.performed -= OnSliding;
+        _playerInput.Player.Slide.canceled -= OnSlidingCancel;
+
     }
 
     private void Update()
@@ -95,6 +101,17 @@ public class PlayerController : MonoBehaviour
         isSprinting = false;
     }
 
+    public void OnSliding(InputAction.CallbackContext context)
+    {
+        isSliding = true;
+    }
+
+    public void OnSlidingCancel(InputAction.CallbackContext context)
+    {
+        isSliding = false;
+        Slide(isSliding);
+    }
+
     private void CreateGroundCheck()
     {
         Ray ray = new Ray(_groundCheck.position, Vector3.down);
@@ -110,7 +127,7 @@ public class PlayerController : MonoBehaviour
         camRight.y = 0f;
         camForward.Normalize();
         camRight.Normalize();
-
+        Vector3 move;
         Vector3 moveDir = camForward * _moveInput.y + camRight * _moveInput.x;
 
         if (moveDir.magnitude >= 0.1f)
@@ -121,18 +138,25 @@ public class PlayerController : MonoBehaviour
         }
         if(!isSprinting)
         {
-            Vector3 move = moveDir.normalized * Speed + Vector3.up * _velocity.y;
+            move = moveDir.normalized * Speed + Vector3.up * _velocity.y;
+
             _controller.Move(move * Time.deltaTime);
             _playerAnimation.MovementAnimation(moveDir.magnitude * Speed);
 
         }
         else
         {
-            Vector3 move = moveDir.normalized * SprintSpeed + Vector3.up * _velocity.y;
+             move = moveDir.normalized * SprintSpeed + Vector3.up * _velocity.y;
+            if(isSliding)
+            {
+                move = moveDir.normalized * (SprintSpeed + slidingSpeedIncrease) + Vector3.up * _velocity.y;
+                Slide(isSliding);
+            }
             _controller.Move(move * Time.deltaTime);
             _playerAnimation.MovementAnimation(moveDir.magnitude * SprintSpeed);
 
         }
+
     }
 
     private bool IsActuallyGrounded()
@@ -146,6 +170,10 @@ public class PlayerController : MonoBehaviour
         {
             _velocity.y = Mathf.Sqrt(jumpHeight * 2f * _gravity);
         }
+    }
+    private void Slide(bool isSliding)
+    {
+        _playerAnimation.SlidingAnimation(isSliding);
     }
 
     private void UpdateVelocity()

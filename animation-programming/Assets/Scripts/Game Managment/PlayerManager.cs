@@ -5,7 +5,7 @@ public class PlayerManager : MonoBehaviour
 {
     private static PlayerManager _instance;
     
-    public CharacterStats Player;
+    public GameObject Player;
 
     public static PlayerManager Instance
     {

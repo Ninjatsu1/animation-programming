@@ -9,7 +9,7 @@ public class Bullet : MonoBehaviour
 
     private int _enemyLayer;
     private int _interactableLayer;
-
+    private GameObject _damageSource;
     public static Action<GameObject> Interact;
    
 
@@ -38,6 +38,11 @@ public class Bullet : MonoBehaviour
         _bulletDamage = damage;
     }
 
+    public void SetDamageSource(GameObject damageSource)
+    {
+        _damageSource = damageSource;
+    }
+
     private void OnCollisionEnter(Collision collision)
     {
        // Debug.Log("Collided: " + collision.gameObject.name);
@@ -47,7 +52,11 @@ public class Bullet : MonoBehaviour
         {
             var health = collidedObject.GetComponent<CharacterHealth>();
 
-            health.DamageHealth(_bulletDamage);
+            DamageInfo damageInfo = new DamageInfo();
+            damageInfo.DamageAmount = 1;
+            damageInfo.Source = _damageSource;
+
+            health.DamageHealth(damageInfo);
         }
 
         if (collidedObject.layer == _interactableLayer)

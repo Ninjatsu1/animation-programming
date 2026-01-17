@@ -39,8 +39,8 @@ public class WeaponShoot : MonoBehaviour
         Bullet bulletScript = bullet.GetComponent<Bullet>();
 
         bulletScript.SetDamage(_gunType.Damage);
+        bulletScript.SetDamageSource(gameObject);
         bullet.transform.rotation = Quaternion.LookRotation(shootDirection);
-
         rb.linearVelocity = Vector3.zero;
         rb.AddForce(shootDirection.normalized * 30f, ForceMode.Impulse);
 

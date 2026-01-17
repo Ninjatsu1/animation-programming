@@ -3,40 +3,47 @@ using UnityEngine;
 
 public class CharacterHealth : MonoBehaviour, IDamageable
 {
-    public Action<float, float> OnHealthChanged;
+    public Action<CharacterHealth, float, float> OnHealthChanged;
     //Current health, max health
+    public event Action<CharacterHealth, DamageInfo> OnDeath;
 
     [SerializeField] private CharacterStats _characterStats;
     [SerializeField] float _currentHealth = 1f;
-    [SerializeField] float _maximumHealth =1f;
+    [SerializeField] float _maximumHealth = 1f;
 
-    private bool _isPLayer  => GetComponent<Player>() != null;
-    private bool _isEnemy => GetComponent<Player>() != null;
+    private bool _isPlayer  => GetComponent<Player>() != null;
+    private bool _isEnemy => GetComponent<Enemy>() != null;
 
 
     private void Awake()
     {
         _maximumHealth = _characterStats.MaximumHealth;
         _currentHealth = _characterStats.MaximumHealth;
-        OnHealthChanged?.Invoke(_currentHealth, _maximumHealth);
+        OnHealthChanged?.Invoke(this, _currentHealth, _maximumHealth);
     }
 
 
-   public void DamageHealth(float damage)
+   public void DamageHealth(DamageInfo damageInfo)
     {
-        _currentHealth -= damage;
-        OnHealthChanged?.Invoke(_currentHealth, _maximumHealth);
+        _currentHealth -= damageInfo.DamageAmount;
+        OnHealthChanged?.Invoke(this, _currentHealth, _maximumHealth);
         if (_currentHealth <= 0f)
         {
-            Despawn();
+            Die(damageInfo);
         }
+    }
+
+    private void Die(DamageInfo damageInfo)
+    {
+        OnDeath?.Invoke(this, damageInfo);
+        Despawn();
     }
 
     public void InstaKill()
     {
-        if (_isPLayer)
+        if (_isPlayer)
         {
-            OnHealthChanged?.Invoke(_maximumHealth, 0);
+            OnHealthChanged?.Invoke(this, _maximumHealth, 0);
         }
         else if (_isEnemy)
         { 
@@ -44,9 +51,17 @@ public class CharacterHealth : MonoBehaviour, IDamageable
         }
        
     }
+    
+
 
     public void Despawn()
     {
-        gameObject.SetActive(false); //Not sure if object should be destroyed. Might changed later if enemies spawns
+        gameObject.SetActive(false);
     }
+}
+
+public struct DamageInfo
+{
+    public float DamageAmount;
+    public GameObject Source;
 }
