@@ -9,6 +9,7 @@ public class Bullet : MonoBehaviour
 
     private int _enemyLayer;
     private int _interactableLayer;
+    private int _playerLayer;
     private GameObject _damageSource;
     public static Action<GameObject> Interact;
    
@@ -16,6 +17,7 @@ public class Bullet : MonoBehaviour
     private void Awake()
     {
         _enemyLayer = LayerMask.NameToLayer("Enemy");
+        _playerLayer = LayerMask.NameToLayer("Player");
         _interactableLayer = LayerMask.NameToLayer("Interactable");
     }
 

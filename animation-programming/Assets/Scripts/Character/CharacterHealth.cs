@@ -43,16 +43,14 @@ public class CharacterHealth : MonoBehaviour, IDamageable
     {
         if (_isPlayer)
         {
-            OnHealthChanged?.Invoke(this, _maximumHealth, 0);
+            OnHealthChanged?.Invoke(this, 0, _maximumHealth);
         }
         else if (_isEnemy)
         { 
             gameObject.SetActive(false);
         }
        
-    }
-    
-
+    }   
 
     public void Despawn()
     {

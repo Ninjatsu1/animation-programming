@@ -29,7 +29,6 @@ public class PlayerRespawn : MonoBehaviour
 
     private void OnPlayerDeath()
     {
-        Debug.Log("move the object");
         _characterController.enabled = false;
         transform.position = _respawnLocation.position;
         _characterController.enabled = true;
