@@ -12,13 +12,16 @@ public class Enemy : MonoBehaviour
     [SerializeField] private float _agentStoppingDistance = 2.5f;
     [SerializeField] private float _aggroRange = 5f;
     [SerializeField] private NavMeshAgent _agent;
-
+    [SerializeField] private float _movementSpeed = 1f;
+    [SerializeField] private EnemyAnimation _enemyAnimation;
+    
 
     private void Awake()
     {
         _agent.stoppingDistance = _agentStoppingDistance;
         _playerLayer = LayerMask.NameToLayer("Player");
-
+        _agent.speed = _movementSpeed;
+        
     }
 
     private void Start()
@@ -28,13 +31,21 @@ public class Enemy : MonoBehaviour
 
     private void Update()
     {
+        SetMovementAnimation();
+
         if (IsPlayerInRange(transform.position, _aggroRange))
         {
+                  
             _agent.destination = _player.transform.position;
 
         }
     }
 
+    private void SetMovementAnimation()
+    {
+        float speed = _agent.velocity.magnitude;
+        _enemyAnimation.MovementAnimation(speed);
+    }
 
     bool IsPlayerInRange(Vector3 position, float radius)
     {
