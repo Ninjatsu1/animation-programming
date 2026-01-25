@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -5,16 +6,17 @@ public class Enemy : MonoBehaviour
 {
     private GameObject _player;
     private Transform _targetDestination;
-    private bool _isAttacking = false;
     private int _playerLayer;
     private Collider[] results = new Collider[1];
+    private bool _attackOnCooldown;
 
+    [SerializeField] private bool _isAttacking = false;
     [SerializeField] private float _agentStoppingDistance = 2.5f;
     [SerializeField] private float _aggroRange = 5f;
     [SerializeField] private NavMeshAgent _agent;
     [SerializeField] private float _movementSpeed = 1f;
     [SerializeField] private EnemyAnimation _enemyAnimation;
-    
+    [SerializeField] private float _enemyMeleeDistance = 1f;
 
     private void Awake()
     {
@@ -32,13 +34,18 @@ public class Enemy : MonoBehaviour
     private void Update()
     {
         SetMovementAnimation();
+        IsPlayerInMeleeRange();
 
-        if (IsPlayerInRange(transform.position, _aggroRange))
+        if (_isAttacking && !_attackOnCooldown)
         {
-                  
-            _agent.destination = _player.transform.position;
-
+            StartCoroutine(MeleeAttack());
         }
+
+        if (IsPlayerInDetectionRange(transform.position, _aggroRange))
+        {
+            _agent.destination = _player.transform.position;
+        }
+
     }
 
     private void SetMovementAnimation()
@@ -47,7 +54,25 @@ public class Enemy : MonoBehaviour
         _enemyAnimation.MovementAnimation(speed);
     }
 
-    bool IsPlayerInRange(Vector3 position, float radius)
+    private void IsPlayerInMeleeRange()
+    {
+        float sqrDistance = (transform.position - _player.transform.position).sqrMagnitude;
+
+        _isAttacking = sqrDistance <= _enemyMeleeDistance;
+    }
+
+    private IEnumerator MeleeAttack()
+    {
+        _attackOnCooldown = true;
+
+        _enemyAnimation.MeleeAttack();
+
+        yield return new WaitForSeconds(1f);
+
+        _attackOnCooldown = false;
+    }
+
+    bool IsPlayerInDetectionRange(Vector3 position, float radius)
     {
         int count = Physics.OverlapSphereNonAlloc(
             position,

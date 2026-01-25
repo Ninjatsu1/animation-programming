@@ -9,9 +9,10 @@ public class EnemyAnimation : MonoBehaviour
         _animator.SetFloat(AnimationParams.SPEED, currentSpeed);
     }
 
-    /*public void MeleeAttack()
+    
+    public void MeleeAttack()
     {
-
-    }*/
+        _animator.SetTrigger(AnimationParams.MELEE_ATTACK);        
+    }
 
 }

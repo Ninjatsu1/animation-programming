@@ -7,4 +7,5 @@ public class AnimationParams
     public static readonly int SHOOT_RIGHT = Animator.StringToHash("ShootRight");
     public static readonly int SPEED = Animator.StringToHash("Speed");
     public static readonly int IS_SLIDING = Animator.StringToHash("IsSliding");
+    public static readonly int MELEE_ATTACK = Animator.StringToHash("MeleeAttack");
 }
