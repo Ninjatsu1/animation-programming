@@ -58,7 +58,7 @@ public class Bullet : MonoBehaviour
             damageInfo.DamageAmount = 1;
             damageInfo.Source = _damageSource;
 
-            health.DamageHealth(damageInfo);
+            health?.DamageHealth(damageInfo);
         }
 
         if (collidedObject.layer == _interactableLayer)
