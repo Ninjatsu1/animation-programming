@@ -17,6 +17,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] private float _movementSpeed = 1f;
     [SerializeField] private EnemyAnimation _enemyAnimation;
     [SerializeField] private float _enemyMeleeDistance = 1f;
+    [SerializeField] private float _meleeAttackCooldown = 1f;
 
     private void Awake()
     {
@@ -67,7 +68,7 @@ public class Enemy : MonoBehaviour
 
         _enemyAnimation.MeleeAttack();
 
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(_meleeAttackCooldown);
 
         _attackOnCooldown = false;
     }

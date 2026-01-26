@@ -6,6 +6,7 @@ public class PlayerManager : MonoBehaviour
     private static PlayerManager _instance;
     
     public GameObject Player;
+    public CharacterStats PlayerStats;
 
     public static PlayerManager Instance
     {

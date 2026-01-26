@@ -221,7 +221,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &436918446369447506
 RectTransform:
   m_ObjectHideFlags: 0
@@ -591,7 +591,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_VertexColorAlwaysGammaSpace: 1
-  m_AdditionalShaderChannelsFlag: 1
+  m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
@@ -661,6 +661,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerUI
   _playerHealthText: {fileID: 5958481486643406286}
+  _playerHealth: {fileID: 0}
+  _playerStats: {fileID: 11400000, guid: 3ee3ff3ef30d0064c9593db1f9e4ec40, type: 2}
 --- !u!114 &6605084512235120086
 MonoBehaviour:
   m_ObjectHideFlags: 0

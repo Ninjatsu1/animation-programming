@@ -4,24 +4,41 @@ using System;
 public class PlayerUI : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI _playerHealthText;
-    private CharacterHealth _characterHealth;
+    [SerializeField] private CharacterHealth _playerHealth;
+    [SerializeField] private CharacterStats _playerStats;
 
-    private GameObject _playerStats = null;
+    private GameObject _player = null;
+
+    private void Awake()
+    {
+        SetPlayerUI();
+    }
 
     private void Start()
     {
         GetPlayer();
-        SetPlayerUI();
+        _playerHealth = _player.GetComponent<CharacterHealth>();
+        _playerHealth.OnHealthChanged += UpdateHealth;
+
+    }
+
+    private void UpdateHealth(CharacterHealth characterHealth, float currentHealth, float maxHealth)
+    {
+        Debug.Log("Setting health");
+        if (characterHealth.gameObject.CompareTag("Player"))
+        { 
+            _playerHealthText.text = currentHealth.ToString();
+        }
     }
 
     private void GetPlayer()
     {
-        _playerStats = PlayerManager.Instance.Player;
+        _player = PlayerManager.Instance.Player;
 
     }
 
     private void SetPlayerUI()
     {
-        _playerHealthText.text = "1"; //_playerStats.CurrentHealth.ToString();
+       _playerHealthText.text = _playerStats.CurrentHealth.ToString();
     }
 }

@@ -47,7 +47,6 @@ public class Bullet : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-       // Debug.Log("Collided: " + collision.gameObject.name);
         var collidedObject = collision.gameObject;
 
         if(collidedObject.layer == _enemyLayer)

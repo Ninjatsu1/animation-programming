@@ -8,8 +8,8 @@ public class CharacterHealth : MonoBehaviour, IDamageable
     public event Action<CharacterHealth, DamageInfo> OnDeath;
 
     [SerializeField] private CharacterStats _characterStats;
-    [SerializeField] float _currentHealth = 1f;
-    [SerializeField] float _maximumHealth = 1f;
+    [SerializeField] private float _currentHealth = 1f;
+    [SerializeField] private float _maximumHealth = 1f;
 
     private bool _isPlayer  => GetComponent<Player>() != null;
     private bool _isEnemy => GetComponent<Enemy>() != null;
