@@ -27,6 +27,11 @@ public class PlayerAnimation : MonoBehaviour
     {
         _animator.SetBool(AnimationParams.IS_SLIDING, isSliding);
     }
+
+    public void CrouchingAnimation(bool isCrouching)
+    {
+        _animator.SetBool(AnimationParams.CROUCHING, isCrouching);
+    }
     
 
     public void DeathAnimation()

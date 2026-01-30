@@ -19,7 +19,7 @@ public class PlayerController : MonoBehaviour
     private PlayerInputControls _playerInput;
     
     private bool isSprinting = false;
-    private float _gravity = 9.81f;
+    private static float _gravity = 9.81f;
     private PlayerAnimation _playerAnimation;
     private CharacterController _controller;
     private Vector2 _moveInput;
@@ -29,6 +29,7 @@ public class PlayerController : MonoBehaviour
     private float rotationVelocity;
     private PlayerManager _playerManager;
     private bool isSliding = false;
+    private bool isCrouching = false;
 
     private void Awake()
     {
@@ -51,7 +52,8 @@ public class PlayerController : MonoBehaviour
         _playerInput.Player.Sprint.canceled += OnSprintCancel;
         _playerInput.Player.Slide.performed += OnSliding;
         _playerInput.Player.Slide.canceled += OnSlidingCancel;
-
+        _playerInput.Player.Crouch.performed += OnCrouch;
+        _playerInput.Player.Crouch.canceled += OnCrouchCancel;
     }
 
     private void OnDisable()
@@ -62,6 +64,8 @@ public class PlayerController : MonoBehaviour
         _playerInput.Player.Sprint.performed -= OnSprint;
         _playerInput.Player.Sprint.performed -= OnSliding;
         _playerInput.Player.Slide.canceled -= OnSlidingCancel;
+        _playerInput.Player.Crouch.performed -= OnCrouch;
+        _playerInput.Player.Crouch.canceled -= OnCrouchCancel;
 
     }
 
@@ -110,6 +114,18 @@ public class PlayerController : MonoBehaviour
     {
         isSliding = false;
         Slide(isSliding);
+    }
+
+    public void OnCrouch(InputAction.CallbackContext context)
+    {
+        isCrouching = true;
+        Crouch(isCrouching);
+    }
+
+    public void OnCrouchCancel(InputAction.CallbackContext context)
+    {
+        isCrouching = false;
+        Crouch(isCrouching);
     }
 
     private void CreateGroundCheck()
@@ -171,9 +187,15 @@ public class PlayerController : MonoBehaviour
             _velocity.y = Mathf.Sqrt(jumpHeight * 2f * _gravity);
         }
     }
+
     private void Slide(bool isSliding)
     {
         _playerAnimation.SlidingAnimation(isSliding);
+    }
+
+    private void Crouch(bool isCrouching)
+    {
+        _playerAnimation.CrouchingAnimation(isCrouching);
     }
 
     private void UpdateVelocity()
