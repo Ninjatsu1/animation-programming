@@ -1,1 +1,1 @@
-Animation programming project to leanr more about Unity's animation systems.
+Animation programming project to learn more about Unity's animation systems.
