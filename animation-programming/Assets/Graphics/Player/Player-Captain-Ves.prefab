@@ -1944,6 +1944,14 @@ MonoBehaviour:
     m_Bits: 8
   _groundCheck: {fileID: 6943159982380814348}
   _groundDistance: 0.4
+  _slideFriction: 2
+  _slideSpeedBoost: 4
+  _standHeight: 1.7
+  _slideHeight: 1
+  _heightChangeSpeed: 10
+  _ceilingMask:
+    serializedVersion: 2
+    m_Bits: 9
 --- !u!114 &520710909502055975
 MonoBehaviour:
   m_ObjectHideFlags: 0

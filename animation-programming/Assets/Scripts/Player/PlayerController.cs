@@ -15,7 +15,20 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private LayerMask _groundMask;
     [SerializeField] private Transform _groundCheck;
     [SerializeField] private float _groundDistance = 0.4f;
-    
+    [SerializeField] private float _slideFriction = 5f;
+    [SerializeField] float _slideSpeedBoost = 1.3f;
+
+    [SerializeField] float _standHeight = 1.7f;
+    [SerializeField] float _slideHeight = 1.0f;
+    [SerializeField] float _heightChangeSpeed = 10f;
+
+
+    [SerializeField] LayerMask _ceilingMask;
+
+    private float _targetHeight;
+    private Vector3 _targetCenter;
+
+
     private PlayerInputControls _playerInput;
     
     private bool isSprinting = false;
@@ -23,13 +36,15 @@ public class PlayerController : MonoBehaviour
     private PlayerAnimation _playerAnimation;
     private CharacterController _controller;
     private Vector2 _moveInput;
-    private Vector2 _mouseInput;
-    private Vector3 _velocity;
+    private Vector3 _currentVelocity;
     private Vector3 _previousPosition;
     private float rotationVelocity;
     private PlayerManager _playerManager;
     private bool isSliding = false;
     private bool isCrouching = false;
+    private Vector3 _slideVelocity;
+    private bool _wasSliding;
+    
 
     private void Awake()
     {
@@ -43,7 +58,154 @@ public class PlayerController : MonoBehaviour
         _playerManager = PlayerManager.Instance;
         _playerInput = _playerManager.PlayerInput;
         _playerInput = _playerManager.PlayerInput;
+        EnableInputs();
 
+    }
+
+    private void OnDisable()
+    {
+        DisableInputs();
+    }
+
+    private void Update()
+    {
+        CreateGroundCheck();
+        MovePlayer();
+        ApplyGravity();
+        HandleCollisionHeight();
+        _previousPosition = transform.position;
+
+    }
+
+    private void ApplyGravity()
+    {
+        if (_isGrounded && _currentVelocity.y < 0)
+            _currentVelocity.y = -2f;
+
+        _currentVelocity.y -= _gravity * Time.deltaTime;
+    }
+
+
+    private void CreateGroundCheck()
+    {
+        Ray ray = new Ray(_groundCheck.position, Vector3.down);
+        _isGrounded = Physics.SphereCast(ray, 0.3f, _groundDistance, _groundMask);
+    }
+
+    private void MovePlayer()
+    {
+        // --- Camera-relative movement ---
+        Transform cam = Camera.main.transform;
+
+        Vector3 camForward = cam.forward;
+        Vector3 camRight = cam.right;
+        camForward.y = 0f;
+        camRight.y = 0f;
+
+        camForward.Normalize();
+        camRight.Normalize();
+
+        Vector3 moveDir = camForward * _moveInput.y + camRight * _moveInput.x;
+
+        // --- Rotation ---
+        if (moveDir.sqrMagnitude > 0.01f)
+        {
+            float targetAngle = Mathf.Atan2(moveDir.x, moveDir.z) * Mathf.Rad2Deg;
+            float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref rotationVelocity, _rotationSmoothTime);
+            transform.rotation = Quaternion.Euler(0f, angle, 0f);
+        }
+
+        Vector3 horizontalVelocity;
+
+        // --- Movement logic ---
+        if (!isSprinting)
+        {
+            horizontalVelocity = moveDir.normalized * Speed;
+            _slideVelocity = Vector3.zero;
+        }
+        else if (isSliding)
+        {
+            if (!_wasSliding)
+            {
+                horizontalVelocity = moveDir.normalized * SprintSpeed * _slideSpeedBoost;
+                _slideVelocity = horizontalVelocity;
+            }
+
+            _slideVelocity = Vector3.Lerp(_slideVelocity,  Vector3.zero, _slideFriction * Time.deltaTime);
+
+            horizontalVelocity = _slideVelocity;
+            Slide(true);
+        }
+        else
+        {
+            horizontalVelocity = moveDir.normalized * SprintSpeed;
+            _slideVelocity = Vector3.zero;
+        }
+
+        _wasSliding = isSliding;
+
+        Vector3 move = horizontalVelocity + Vector3.up * _currentVelocity.y;
+
+        _controller.Move(move * Time.deltaTime);
+
+        _playerAnimation.MovementAnimation(horizontalVelocity.magnitude);
+    }
+
+    private void HandleCollisionHeight()
+    {
+        float desiredHeight = isSliding ? _slideHeight : _standHeight;
+
+        if (!isSliding && !CanStandUp())
+        {
+            desiredHeight = _slideHeight;
+        }
+        _targetHeight = desiredHeight;
+        _targetCenter = new Vector3(0f, desiredHeight * 0.5f, 0f);
+        _controller.height = Mathf.Lerp(_controller.height, _targetHeight, _heightChangeSpeed * Time.deltaTime);
+        _controller.center = Vector3.Lerp(_controller.center, _targetCenter, _heightChangeSpeed * Time.deltaTime);
+    }
+
+    private bool CanStandUp()
+    {
+        float castDistance = _standHeight - _controller.height + 0.05f;
+
+        Vector3 origin = transform.position + Vector3.up * _controller.height * 0.5f;
+
+        return !Physics.SphereCast(origin, _controller.radius, Vector3.up, out _, castDistance, _ceilingMask);
+    }
+
+    private bool IsActuallyGrounded()
+    {
+        return _isGrounded && _currentVelocity.y <= 0f;
+    }
+
+    private void Jump()
+    {
+        if (IsActuallyGrounded())
+        {
+            _currentVelocity.y = Mathf.Sqrt(jumpHeight * 2f * _gravity);
+        }
+    }
+
+    private void Slide(bool isSliding)
+    {
+        _playerAnimation.SlidingAnimation(isSliding);
+    }
+
+    private void Crouch(bool isCrouching)
+    {
+
+        _playerAnimation.CrouchingAnimation(isCrouching);
+    }
+
+    private void UpdateVelocity()
+    {
+        _currentVelocity = (transform.position - _previousPosition) / Time.deltaTime;
+        _previousPosition = transform.position;
+    }
+
+    private void EnableInputs()
+    {
         _playerInput.Player.Sprint.performed += OnSprint;
         _playerInput.Player.Move.performed += OnMove;
         _playerInput.Player.Move.canceled += OnMove;
@@ -56,7 +218,7 @@ public class PlayerController : MonoBehaviour
         _playerInput.Player.Crouch.canceled += OnCrouchCancel;
     }
 
-    private void OnDisable()
+    private void DisableInputs()
     {
         _playerInput.Player.Move.performed -= OnMove;
         _playerInput.Player.Move.canceled -= OnMove;
@@ -66,23 +228,6 @@ public class PlayerController : MonoBehaviour
         _playerInput.Player.Slide.canceled -= OnSlidingCancel;
         _playerInput.Player.Crouch.performed -= OnCrouch;
         _playerInput.Player.Crouch.canceled -= OnCrouchCancel;
-
-    }
-
-    private void Update()
-    {
-        CreateGroundCheck();
-        MovePlayer();
-        ApplyGravity();
-        _previousPosition = transform.position;
-    }
-
-    private void ApplyGravity()
-    {
-        if (_isGrounded && _velocity.y < 0)
-            _velocity.y = -2f;
-
-        _velocity.y -= _gravity * Time.deltaTime;
     }
 
     public void OnMove(InputAction.CallbackContext context)
@@ -126,82 +271,6 @@ public class PlayerController : MonoBehaviour
     {
         isCrouching = false;
         Crouch(isCrouching);
-    }
-
-    private void CreateGroundCheck()
-    {
-        Ray ray = new Ray(_groundCheck.position, Vector3.down);
-        _isGrounded = Physics.SphereCast(ray, 0.3f, _groundDistance, _groundMask);
-    }
-
-    private void MovePlayer()
-    {
-        Transform camTransform = Camera.main.transform;
-        Vector3 camForward = camTransform.forward;
-        Vector3 camRight = camTransform.right;
-        camForward.y = 0f;
-        camRight.y = 0f;
-        camForward.Normalize();
-        camRight.Normalize();
-        Vector3 move;
-        Vector3 moveDir = camForward * _moveInput.y + camRight * _moveInput.x;
-
-        if (moveDir.magnitude >= 0.1f)
-        {
-            float targetAngle = Mathf.Atan2(moveDir.x, moveDir.z) * Mathf.Rad2Deg;
-            float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref rotationVelocity, _rotationSmoothTime);
-            transform.rotation = Quaternion.Euler(0f, angle, 0f);
-        }
-        if(!isSprinting)
-        {
-            move = moveDir.normalized * Speed + Vector3.up * _velocity.y;
-
-            _controller.Move(move * Time.deltaTime);
-            _playerAnimation.MovementAnimation(moveDir.magnitude * Speed);
-
-        }
-        else
-        {
-             move = moveDir.normalized * SprintSpeed + Vector3.up * _velocity.y;
-            if(isSliding)
-            {
-                move = moveDir.normalized * (SprintSpeed + slidingSpeedIncrease) + Vector3.up * _velocity.y;
-                Slide(isSliding);
-            }
-            _controller.Move(move * Time.deltaTime);
-            _playerAnimation.MovementAnimation(moveDir.magnitude * SprintSpeed);
-
-        }
-
-    }
-
-    private bool IsActuallyGrounded()
-    {
-        return _isGrounded && _velocity.y <= 0f;
-    }
-
-    private void Jump()
-    {
-        if (IsActuallyGrounded())
-        {
-            _velocity.y = Mathf.Sqrt(jumpHeight * 2f * _gravity);
-        }
-    }
-
-    private void Slide(bool isSliding)
-    {
-        _playerAnimation.SlidingAnimation(isSliding);
-    }
-
-    private void Crouch(bool isCrouching)
-    {
-        _playerAnimation.CrouchingAnimation(isCrouching);
-    }
-
-    private void UpdateVelocity()
-    {
-        _velocity = (transform.position - _previousPosition) / Time.deltaTime;
-        _previousPosition = transform.position;
     }
 
 }
