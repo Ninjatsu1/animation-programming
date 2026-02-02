@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: MeleeRobot
   m_EditorClassIdentifier: Assembly-CSharp::CharacterStats
   CharacterName: Melee Robot
-  MaximumHealth: 10
+  MaximumHealth: 3
   CurrentHealth: 1
   MaximumMana: 1
   CharacterPrefab: {fileID: 9037333224073562396, guid: 705fd78420632134685830bdc74812ef, type: 3}
