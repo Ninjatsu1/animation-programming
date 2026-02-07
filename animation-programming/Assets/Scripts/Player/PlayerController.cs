@@ -81,7 +81,6 @@ public class PlayerController : MonoBehaviour
     {
         if (_isGrounded && _currentVelocity.y < 0)
             _currentVelocity.y = -2f;
-
         _currentVelocity.y -= _gravity * Time.deltaTime;
     }
 

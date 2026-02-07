@@ -23,6 +23,11 @@ public class PlayerAnimation : MonoBehaviour
         _animator.SetFloat(AnimationParams.SPEED, currentSpeed);
     }
 
+    public void DeathAnimation()
+    {
+        _animator.SetTrigger(AnimationParams.DYING);
+    }
+
     public void SlidingAnimation(bool isSliding)
     {
         _animator.SetBool(AnimationParams.IS_SLIDING, isSliding);
@@ -33,9 +38,9 @@ public class PlayerAnimation : MonoBehaviour
         _animator.SetBool(AnimationParams.CROUCHING, isCrouching);
     }
     
-
-    public void DeathAnimation()
+    public void PlayerIsAlive(bool playerIsAlive)
     {
-        Debug.Log("Player death animation");    
+        _animator.SetBool(AnimationParams.IS_ALIVE, playerIsAlive);
     }
+
 }

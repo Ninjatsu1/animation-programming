@@ -4,6 +4,10 @@ using UnityEngine;
 public class PlayerDeath : MonoBehaviour
 {
     private CharacterHealth _playerHealth;
+    
+    [SerializeField] private PlayerAnimation _playerAnimation;
+    
+   
     public Action PlayerDied;
 
     private void Awake()
@@ -20,7 +24,13 @@ public class PlayerDeath : MonoBehaviour
     {
         if(currentHealth <= 0)
         {
+            _playerAnimation.DeathAnimation();
             PlayerDied?.Invoke();
         }  
+    }
+
+    private void OnDisable()
+    {
+        _playerHealth.OnHealthChanged -= Die;
     }
 }

@@ -2055,6 +2055,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01e06a24205da6d439297fe58b6519e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerDeath
+  _playerAnimation: {fileID: 520710909502055975}
 --- !u!114 &2799871396474554702
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2079,6 +2080,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12d0f671223b9ca4284b24021dcad18e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerRespawn
+  _playerAnimation: {fileID: 520710909502055975}
+  _characterHealth: {fileID: 3580873091220922067}
 --- !u!4 &674114034911598263 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -9057147991583669159, guid: 3b3add24ff9cf2241bf5fec1a73d3205, type: 3}

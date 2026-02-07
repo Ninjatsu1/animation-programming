@@ -11,10 +11,6 @@ public class CharacterHealth : MonoBehaviour, IDamageable
     [SerializeField] private float _currentHealth = 1f;
     [SerializeField] private float _maximumHealth = 1f;
 
-    private bool _isPlayer  => GetComponent<Player>() != null;
-    private bool _isEnemy => GetComponent<Enemy>() != null;
-
-
     private void Awake()
     {
         _maximumHealth = _characterStats.MaximumHealth;
@@ -33,28 +29,21 @@ public class CharacterHealth : MonoBehaviour, IDamageable
         }
     }
 
+    public void InstaKill()
+    {
+        OnHealthChanged?.Invoke(this, 0, _maximumHealth);
+    }
+
+    public void ResetHealth()
+    {
+        _currentHealth = _maximumHealth;
+        OnHealthChanged(this, _currentHealth, _maximumHealth);
+
+    }
+
     private void Die(DamageInfo damageInfo)
     {
         OnDeath?.Invoke(this, damageInfo);
-        Despawn();
-    }
-
-    public void InstaKill()
-    {
-        if (_isPlayer)
-        {
-            OnHealthChanged?.Invoke(this, 0, _maximumHealth);
-        }
-        else if (_isEnemy)
-        { 
-            gameObject.SetActive(false);
-        }
-       
-    }   
-
-    public void Despawn()
-    {
-        gameObject.SetActive(false);
     }
 }
 

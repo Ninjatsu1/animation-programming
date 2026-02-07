@@ -8,6 +8,10 @@ public class PlayerRespawn : MonoBehaviour
     private PlayerDeath _playerDied;
     private CharacterController _characterController;
 
+
+    [SerializeField] private PlayerAnimation _playerAnimation;
+    [SerializeField] private CharacterHealth _characterHealth;
+
     private void Awake()
     {
         _characterController = GetComponent<CharacterController>();
@@ -18,7 +22,7 @@ public class PlayerRespawn : MonoBehaviour
 
     private void OnEnable()
     {
-        _playerDied.PlayerDied += OnPlayerDeath;
+        //_playerDied.PlayerDied += OnPlayerDeath;
     }
 
     private void GetRespawnLocation() //Object should be found in levelmanager
@@ -27,16 +31,28 @@ public class PlayerRespawn : MonoBehaviour
 
     }
 
-    private void OnPlayerDeath()
+    public void PlayerDeathEvent()
+    {
+        RespawnPlayer();
+        PlayerIsAliveAnimation();
+        ResetPlayerHealth();
+    }
+
+    private void RespawnPlayer()
     {
         _characterController.enabled = false;
         transform.position = _respawnLocation.position;
         _characterController.enabled = true;
     }
 
-    private void OnDisable()
+    private void PlayerIsAliveAnimation()
     {
-        _playerDied.PlayerDied -= OnPlayerDeath;
-
+        _playerAnimation.PlayerIsAlive(true);
     }
+
+    private void ResetPlayerHealth()
+    {
+        _characterHealth.ResetHealth();
+    }
+
 }
