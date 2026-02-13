@@ -9,6 +9,7 @@ public class WeaponShoot : MonoBehaviour
     [SerializeField] GunType _gunType;
     [SerializeField] Transform _bulletSpawnPositionLeft;
     [SerializeField] Transform _bulletSpawnPositionRight;
+    
     private GameObject _bullet;
 
     private void Awake()

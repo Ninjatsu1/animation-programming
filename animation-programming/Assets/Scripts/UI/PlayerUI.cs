@@ -4,14 +4,21 @@ using System;
 public class PlayerUI : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI _playerHealthText;
-    [SerializeField] private CharacterHealth _playerHealth;
+    [SerializeField] private TextMeshProUGUI _ammoCountText;
     [SerializeField] private CharacterStats _playerStats;
+
+    private CharacterHealth _playerHealth;
 
     private GameObject _player = null;
 
     private void Awake()
     {
         SetPlayerUI();
+    }
+
+    private void OnEnable()
+    {
+        WeaponController.UpdateAmmoCount += UpdateAmmoCount;
     }
 
     private void Start()
@@ -24,11 +31,17 @@ public class PlayerUI : MonoBehaviour
 
     private void UpdateHealth(CharacterHealth characterHealth, float currentHealth, float maxHealth)
     {
-        Debug.Log("Setting health");
         if (characterHealth.gameObject.CompareTag("Player"))
         { 
             _playerHealthText.text = currentHealth.ToString();
         }
+    }
+
+    private void UpdateAmmoCount(WeaponController weaponController, int ammoCount)
+    {
+        Debug.Log("Update ammo count");
+        if(weaponController.gameObject == _player)
+        _ammoCountText.text = ammoCount.ToString();
     }
 
     private void GetPlayer()
@@ -40,5 +53,13 @@ public class PlayerUI : MonoBehaviour
     private void SetPlayerUI()
     {
        _playerHealthText.text = _playerStats.CurrentHealth.ToString();
+    }
+
+
+    private void OnDisable()
+    {
+        _playerHealth.OnHealthChanged -= UpdateHealth;
+        WeaponController.UpdateAmmoCount -= UpdateAmmoCount;
+
     }
 }

@@ -25,6 +25,11 @@ public class WeaponAnimation : MonoBehaviour
         _animator.SetTrigger(animationHash);
     }
 
+    public void ReloadAnimation()
+    {
+        _animator.SetTrigger(AnimationParams.RELOAD);
+    }
+
     public void FireEvent(string whichWeapon)
     {
         WeaponFired?.Invoke(whichWeapon);

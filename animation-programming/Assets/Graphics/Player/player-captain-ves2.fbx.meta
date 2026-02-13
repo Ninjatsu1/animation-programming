@@ -31,11 +31,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Armature|idle-basic
-      takeName: Armature|idle-basic
+      name: Walk
+      takeName: Walk
       internalID: -2245116840174246344
       firstFrame: 0
-      lastFrame: 80
+      lastFrame: 79
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -89,11 +89,11 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Armature|Idle-with-guns
-      takeName: Armature|Idle-with-guns
+      name: Idle-with-guns
+      takeName: Idle-with-guns
       internalID: -76497957830412274
       firstFrame: 0
-      lastFrame: 40
+      lastFrame: 60
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -147,40 +147,11 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Armature|Run
-      takeName: Armature|Run
-      internalID: -7551964380084998518
-      firstFrame: 0
-      lastFrame: 80
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      hasAdditiveReferencePose: 0
-      loopTime: 1
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask: []
-      maskType: 3
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
-    - serializedVersion: 16
-      name: Armature|Shoot-Left
-      takeName: Armature|Shoot-Left
+      name: Shoot-Left.001
+      takeName: Shoot-Left.001
       internalID: -8388765135895837938
       firstFrame: 0
-      lastFrame: 30
+      lastFrame: 59
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -205,11 +176,11 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Armature|Shoot-Right
-      takeName: Armature|Shoot-Right
+      name: Shoot-Right.001
+      takeName: Shoot-Right.001
       internalID: 273839337177722639
       firstFrame: 0
-      lastFrame: 30
+      lastFrame: 59
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -321,11 +292,11 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Armature|Slide_2
-      takeName: Armature|Slide_2
+      name: Slide_2
+      takeName: Slide_2
       internalID: -4693275504202970550
       firstFrame: 0
-      lastFrame: 64
+      lastFrame: 79
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -350,11 +321,11 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Armature|Run.001
-      takeName: Armature|Run.001
+      name: Run.002
+      takeName: Run.002
       internalID: -6637482526903246731
       firstFrame: 0
-      lastFrame: 80
+      lastFrame: 39
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -379,11 +350,11 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Armature|Crouch
-      takeName: Armature|Crouch
+      name: Crouch.001
+      takeName: Crouch.001
       internalID: -3938602370162505636
       firstFrame: 0
-      lastFrame: 80
+      lastFrame: 79
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -408,8 +379,8 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Armature|Crouch-idle
-      takeName: Armature|Crouch-idle
+      name: Crouch-idle
+      takeName: Crouch-idle
       internalID: 8418273734409045868
       firstFrame: 0
       lastFrame: 59
@@ -437,11 +408,40 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Armature|Death
-      takeName: Armature|Death
+      name: Death
+      takeName: Death
       internalID: -5375032879275983795
       firstFrame: 0
       lastFrame: 51
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Armature|Reload-test
+      takeName: Armature|Reload-test
+      internalID: -2475092056715152714
+      firstFrame: 0
+      lastFrame: 99
       wrapMode: 0
       orientationOffsetY: 0
       level: 0

@@ -12,7 +12,7 @@ public class GunType : ScriptableObject
     public float Damage = 10f;
     public float FireRate = 0.25f;
     public float BulletSpeed = 50f;
-    public int Ammo = 30;
+    public int MagazineSize = 12;
 
     [Header("Effects")] //Implement these later!
     public GameObject BulletPrefab;
