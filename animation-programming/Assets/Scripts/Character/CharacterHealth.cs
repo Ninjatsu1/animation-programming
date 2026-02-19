@@ -5,7 +5,7 @@ public class CharacterHealth : MonoBehaviour, IDamageable
 {
     public Action<CharacterHealth, float, float> OnHealthChanged;
     //Current health, max health
-    public event Action<CharacterHealth, DamageInfo> OnDeath;
+    public static event Action<CharacterHealth, DamageInfo> OnDeath;
 
     [SerializeField] private CharacterStats _characterStats;
     [SerializeField] private float _currentHealth = 1f;

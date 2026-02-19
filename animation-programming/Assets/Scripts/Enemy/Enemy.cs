@@ -27,6 +27,11 @@ public class Enemy : MonoBehaviour
         
     }
 
+    private void OnEnable()
+    {
+        CharacterHealth.OnDeath += Die;
+    }
+
     private void Start()
     {
         _player = PlayerManager.Instance.Player;
@@ -71,6 +76,14 @@ public class Enemy : MonoBehaviour
         yield return new WaitForSeconds(_meleeAttackCooldown);
 
         _attackOnCooldown = false;
+    }
+
+    private void Die(CharacterHealth characterHealth, DamageInfo damageInfo)
+    {
+        if(characterHealth.gameObject == gameObject)
+        {
+            gameObject.SetActive(false);
+        }
     }
 
     bool IsPlayerInDetectionRange(Vector3 position, float radius)
