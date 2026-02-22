@@ -12,4 +12,5 @@ public class AnimationParams
     public static readonly int DYING = Animator.StringToHash("Dying");
     public static readonly int IS_ALIVE = Animator.StringToHash("IsAlive");
     public static readonly int RELOAD = Animator.StringToHash("Reload");
+    public static readonly int IS_GROUNDED = Animator.StringToHash("IsGrounded");
 }

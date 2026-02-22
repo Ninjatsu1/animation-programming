@@ -184,6 +184,8 @@ public class PlayerController : MonoBehaviour
         {
             _currentVelocity.y = Mathf.Sqrt(jumpHeight * 2f * _gravity);
         }
+        _playerAnimation.JumpAnimation();
+
     }
 
     private void Slide(bool isSliding)

@@ -43,4 +43,9 @@ public class PlayerAnimation : MonoBehaviour
         _animator.SetBool(AnimationParams.IS_ALIVE, playerIsAlive);
     }
 
+    public void JumpAnimation()
+    {
+        _animator.SetTrigger("Jump");
+    }
+
 }
