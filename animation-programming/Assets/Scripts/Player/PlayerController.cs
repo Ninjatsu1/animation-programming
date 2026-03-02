@@ -1,5 +1,4 @@
-﻿using TMPro;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(CharacterController))]
@@ -57,9 +56,7 @@ public class PlayerController : MonoBehaviour
     {
         _playerManager = PlayerManager.Instance;
         _playerInput = _playerManager.PlayerInput;
-        _playerInput = _playerManager.PlayerInput;
         EnableInputs();
-
     }
 
     private void OnDisable()
@@ -195,7 +192,6 @@ public class PlayerController : MonoBehaviour
 
     private void Crouch(bool isCrouching)
     {
-
         _playerAnimation.CrouchingAnimation(isCrouching);
     }
 

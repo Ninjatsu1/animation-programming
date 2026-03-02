@@ -39,7 +39,6 @@ public class PlayerUI : MonoBehaviour
 
     private void UpdateAmmoCount(WeaponController weaponController, int ammoCount)
     {
-        Debug.Log("Update ammo count");
         if(weaponController.gameObject == _player)
         _ammoCountText.text = ammoCount.ToString();
     }
