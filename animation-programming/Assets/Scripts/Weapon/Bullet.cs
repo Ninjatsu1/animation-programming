@@ -45,7 +45,7 @@ public class Bullet : MonoBehaviour
         _damageSource = damageSource;
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider collision)
     {
         var collidedObject = collision.gameObject;
 
@@ -60,7 +60,7 @@ public class Bullet : MonoBehaviour
             health?.DamageHealth(damageInfo);
         }
 
-        if (collidedObject.layer == _interactableLayer)
+        if (collidedObject.layer == _interactableLayer) //Check if interaction code should be somewhere else
         {
             Interact?.Invoke(collidedObject);
         }

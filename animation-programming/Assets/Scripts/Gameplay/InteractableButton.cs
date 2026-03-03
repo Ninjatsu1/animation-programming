@@ -18,6 +18,10 @@ public class InteractableButton : MonoBehaviour
 
     private void OnInteract(GameObject collidedObject)
     {
-        _portToOpen.SetActive(false);
+        Debug.Log(collidedObject.name);
+        if (collidedObject == gameObject)
+        {
+            _portToOpen.SetActive(false);
+        }
     }
 }
