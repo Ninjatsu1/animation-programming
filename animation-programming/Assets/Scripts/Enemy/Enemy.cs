@@ -6,7 +6,7 @@ public class Enemy : MonoBehaviour
 {
     private GameObject _player;
     private Transform _targetDestination;
-    private int _playerLayer;
+    [SerializeField] LayerMask _playerLayer;
     private Collider[] results = new Collider[1];
     private bool _attackOnCooldown;
 
@@ -22,7 +22,6 @@ public class Enemy : MonoBehaviour
     private void Awake()
     {
         _agent.stoppingDistance = _agentStoppingDistance;
-        _playerLayer = LayerMask.NameToLayer("Player");
         _agent.speed = _movementSpeed;
         
     }
@@ -39,18 +38,21 @@ public class Enemy : MonoBehaviour
 
     private void Update()
     {
+        IsPlayerInDetectionRange();
         SetMovementAnimation();
         IsPlayerInMeleeRange();
+        if(IsPlayerInDetectionRange())
+        {
+            _agent.destination = _player.transform.position;
+
+        }
 
         if (_isAttacking && !_attackOnCooldown)
         {
             StartCoroutine(MeleeAttack());
         }
-
-        if (IsPlayerInDetectionRange(transform.position, _aggroRange))
-        {
-            _agent.destination = _player.transform.position;
-        }
+        
+            
 
     }
 
@@ -86,15 +88,16 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    bool IsPlayerInDetectionRange(Vector3 position, float radius)
+    private bool IsPlayerInDetectionRange()
     {
-        int count = Physics.OverlapSphereNonAlloc(
-            position,
-            radius,
-            results,
-            _playerLayer
-        );
 
-        return count > 0;
+        Vector3 distance = _player.transform.position - transform.position;
+        if (distance.sqrMagnitude <= _aggroRange * _aggroRange)
+        {
+            return true;
+        } else
+        {
+            return false;
+        }
     }
 }

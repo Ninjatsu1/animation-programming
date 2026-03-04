@@ -441,9 +441,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd28612d46d85c04b85cf467cf047d13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Enemy
+  _playerLayer:
+    serializedVersion: 2
+    m_Bits: 2048
   _isAttacking: 0
   _agentStoppingDistance: 2
-  _aggroRange: 3
+  _aggroRange: 5
   _agent: {fileID: 4649851329930941197}
   _movementSpeed: 2
   _enemyAnimation: {fileID: 7782278565091480946}
