@@ -142,7 +142,7 @@ Transform:
   m_GameObject: {fileID: 961982788222189162}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0, y: -0.207, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -430,12 +430,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3169474227984810067}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: 0.31143826, y: -0.01305641, z: 0.09839835, w: 0.945068}
+  m_LocalPosition: {x: -0.04439381, y: 0.26405048, z: 0.019259749}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 8243147361285430391}
+  m_Father: {fileID: 1395847688059363025}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4912182806813848268
 GameObject:
@@ -630,7 +630,7 @@ MonoBehaviour:
         weight: 0
     m_Offset: {x: 0, y: 0, z: 0}
     m_MinLimit: -20
-    m_MaxLimit: 3
+    m_MaxLimit: 30
     m_AimAxis: 2
     m_UpAxis: 4
     m_WorldUpType: 0
@@ -747,7 +747,7 @@ MonoBehaviour:
         weight: 0
     m_Offset: {x: 0, y: 0, z: 0}
     m_MinLimit: -20
-    m_MaxLimit: 3
+    m_MaxLimit: 30
     m_AimAxis: 2
     m_UpAxis: 4
     m_WorldUpType: 0
@@ -1685,12 +1685,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -2402000610509287024, guid: 3b3add24ff9cf2241bf5fec1a73d3205, type: 3}
       insertIndex: -1
       addedObject: {fileID: 4643266866979634228}
+    - targetCorrespondingSourceObject: {fileID: -7472763895039030209, guid: 3b3add24ff9cf2241bf5fec1a73d3205, type: 3}
+      insertIndex: 0
+      addedObject: {fileID: 3634635995005894693}
     - targetCorrespondingSourceObject: {fileID: -472334673111134567, guid: 3b3add24ff9cf2241bf5fec1a73d3205, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8994326607584964442}
-    - targetCorrespondingSourceObject: {fileID: -472334673111134567, guid: 3b3add24ff9cf2241bf5fec1a73d3205, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 3634635995005894693}
     - targetCorrespondingSourceObject: {fileID: -472334673111134567, guid: 3b3add24ff9cf2241bf5fec1a73d3205, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8972457886317637818}
