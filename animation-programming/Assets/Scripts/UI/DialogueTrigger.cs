@@ -6,6 +6,8 @@ public class DialogueTrigger : MonoBehaviour
     [SerializeField] private GameObject _worldCanvas;
     [SerializeField] private bool _itemCheckRequired = false;
     [SerializeField] private GameObject _requiredItem;
+    [SerializeField] private string dialogueLockedText = "Text...";
+    [SerializeField] private ExitLevel _exitLevel;
 
     private bool _playerInInteractionZone = false;
     private bool _isDialogueOpen = false;
@@ -30,7 +32,13 @@ public class DialogueTrigger : MonoBehaviour
         {
             CheckItem();
             _isDialogueOpen = !_isDialogueOpen;
-            DisplayDialogueUI?.Invoke(_isDialogueOpen);
+            if (!CheckItem()) 
+            {
+                DisplayDialogueUI?.Invoke(_isDialogueOpen);
+            } else
+            {
+                _exitLevel.LoadScene();
+            }
         }
     }
 
@@ -51,14 +59,14 @@ public class DialogueTrigger : MonoBehaviour
 
     }
 
-    private void CheckItem()
+    private bool CheckItem()
     {
         if(_playerInventory.GetKeyItem(_requiredItem))
         {
-            Debug.Log("Item is in the inventory");
+            return true;
         } else
         {
-            Debug.Log("Item is not the inventory");
+            return false;
         }
     }
 

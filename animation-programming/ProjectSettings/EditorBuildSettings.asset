@@ -8,6 +8,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Game.unity
     guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 1
+    path: Assets/Scenes/Menu.unity
+    guid: 3fc01ca316ee7ea4ab62d50fff76bc1d
+  - enabled: 1
+    path: Assets/Scenes/Mines.unity
+    guid: dcd8be75ea89a2447be2cd546f11ce1d
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: c925fda872cda584f8d986b9bbf164ed, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: e8d55970af03f924f908c688fa718c55, type: 3}

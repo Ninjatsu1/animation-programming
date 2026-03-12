@@ -183,6 +183,7 @@ GameObject:
   - component: {fileID: 5307031504824921403}
   - component: {fileID: 8142687649259635651}
   - component: {fileID: 585915165223857719}
+  - component: {fileID: 2204264771227745224}
   m_Layer: 0
   m_Name: InteractionTrigger
   m_TagString: Untagged
@@ -240,6 +241,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DialogueTrigger
   _worldCanvas: {fileID: 9205400071181432951}
+  _itemCheckRequired: 0
+  _requiredItem: {fileID: 0}
+  dialogueLockedText: Text...
+  _exitLevel: {fileID: 2204264771227745224}
+--- !u!114 &2204264771227745224
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9188688039303483613}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8d30e5966867ca4381fc685d9a90e4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ExitLevel
+  _exitIsLocked: 1
+  _dialogueTrigger: {fileID: 585915165223857719}
 --- !u!1 &9205400071181432951
 GameObject:
   m_ObjectHideFlags: 0
